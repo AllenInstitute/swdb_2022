@@ -117,7 +117,7 @@ class ReceptiveFieldMapping_VBN(ReceptiveFieldMapping):
                 # metrics_df.loc[:, ['run_pval_rf', 'run_mod_rf']] = \
                 #         [self._get_running_modulation(unit, self._get_preferred_condition(unit)) for unit in unit_ids]
 
-            self._metrics = metrics_df
+            self._metrics = metrics_df.dropna(axis=1, how='all')
 
         return self._metrics
 
