@@ -6,6 +6,7 @@ dependencies:
   - python==3.8.10
   - numpy
   - matplotlib
+  - ipympl
   - pandas
   - scikit-learn
   - nbgitpuller
