@@ -18,6 +18,6 @@ dependencies:
       - allensdk==2.13.6
       - caveclient==4.16.1
       - nglui==2.10.1
-      - meshparty==1.16.4
+      - meshparty==1.16.5
       - git+https://github.com/AllenInstitute/em_coregistration.git@swdb
       - git+https://github.com/cajal/microns_phase3_nda.git
