@@ -19,12 +19,11 @@ Any material we don't cover Saturday will be covered Sunday morning.
 | Michael        | 00_Introduction.ipynb                               |
 | Michael        | 01_Basic_Python_I_Object_and_Data_Structures.ipynb  |
 | Koosha         | 02_Basic_Python_II_Control_Flow_and_Functions.ipynb |
-| Koosha or Luke | 03_Intro_To_Scientific_Computing.ipynb              |
-| Koosha or Luke | 04_Introduction_To_Numpy.ipynb                      |
-| Koosha or Luke | 05_Introduction_To_Matplotlib.ipynb                 |
+| Luke           | 03_Intro_To_Scientific_Computing.ipynb              |
+| Luke           | 04_Introduction_To_Numpy.ipynb                      |
+| Koosha         | 05_Introduction_To_Matplotlib.ipynb                 |
 | Jon            | 06_Custom_Modules.ipynb                             |
 | Jon            | 07_Conda_Environments.ipynb                         |
-| Jon            | 08_Development_Tools.ipynb                          |
 
 ---
 
@@ -36,6 +35,7 @@ Seattle, WA 98109
 
 | Instructor     | Section                                             |
 |----------------|-----------------------------------------------------|
+| Jon            | 08_Development_Tools.ipynb                          |
 | Clark          | 09_Introduction_To_Pandas.ipynb                     |
 
 ---
