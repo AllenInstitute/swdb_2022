@@ -15476,7 +15476,7 @@ jp-needs-light-background
 <h3>1.2 Comparing lick times for hit trials and aborted trials</h3>
 
 <p>
-Next, we'll compute the time between the start of the trial and the point at which the mouse licked, and compare this time interval across aborted trials and hit trials. To do this, we'll first create a new column in the <code>trials</code> table containing the aforementioned time interval, and then plot histograms of the time interval for hit and aborted trials.
+Next, we'll compute the time interval between the start of the trial and the point at which the mouse licked, and compare this time interval across aborted trials and hit trials. To do this, we'll first create a new column in the <code>trials</code> table containing the aforementioned time interval, and then plot histograms of the time interval for hit and aborted trials.
 </p>
 
 <p>
@@ -15484,7 +15484,13 @@ Since the mouse correctly waited until the stimulus changed in hit trials, the w
 </p>
 
 <blockquote>
-    <strong>Note</strong>: Do <em>not</em> use the 'licks' <em>column</em> from the <code>trials</code> table to get the times at which licks occurred. Use information from the <code>licks</code> <em>table</em> instead. This is because the <code>trials</code> table contains lick timestamps as recorded by the task control computer, while the <code>licks</code> table contains lick timestamps as recorded by the lick sensor; the latter is more accurate.
+<p>
+<strong>Note</strong>: Do <em>not</em> use the 'licks' <em>column</em> from the <code>trials</code> table to get the times at which licks occurred. Use information from the <code>licks</code> <em>table</em> instead. This is because the <code>trials</code> table contains lick timestamps as recorded by the task control computer, while the <code>licks</code> table contains lick timestamps as recorded by the lick sensor; the latter is more accurate.
+</p>
+
+<p>
+<strong>Hint</strong>: The first step in this exercise is to find the initial lick in every trial. That is, for every <code>start_time</code> in the <code>trials</code> table, we need to find the first lick timestamp in the <code>licks</code> table coming immediately after it. To do this efficiently, we'll use the numpy function <a href="https://numpy.org/doc/stable/reference/generated/numpy.searchsorted.html"><code>np.searchsorted</code></a>: more information on using this function is available in the first prompt for this exercise.
+</p>
 </blockquote>
 
 <p>
@@ -15504,7 +15510,24 @@ If you want to try coming up with the logic for this on your own (i.e., without 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-<strong>Prompt 1.2.a:</strong> First, find the initial lick in each trial. The <code>licks</code> table contains a <code>timestamps</code> column that has all time instants at which the mouse licked. Use numpy's <code>np.searchsorted</code> function to find the lick timestamps that come immediately after each trial's <code>start_time</code>. Add these indices as a new column to the <code>trials</code> table called <code>first_lick_indices</code>.
+<p>
+<strong>Prompt 1.2.a:</strong> First, find the initial lick in each trial. The <code>licks</code> table contains a <code>timestamps</code> column that has all time instants at which the mouse licked. Use numpy's <code>np.searchsorted</code> function to find the indices of the licks that come immediately after each trial's <code>start_time</code>. (These indices may not make sense for trials where the mouse did not lick, but later, we will be considering only hit and aborted trials, in which we know for sure that the mouse did lick.) You should have one lick index for each trial: add these indices as a new column to the <code>trials</code> table called <code>first_lick_indices</code>.
+</p>
+
+<blockquote>
+<p>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.searchsorted.html"><code>np.searchsorted</code></a> can efficiently find the index at which a number <code>v</code> must be inserted into a sorted array <code>a</code> to maintain sorted order. <code>v</code> can also be an array, in which case <code>searchsorted</code> returns one index for each element of <code>v</code>.
+</p>
+<p>
+To take an example, let's consider a sorted array, <code>a = [1, 4, 7, 9]</code> and suppose <code>v = [5, 0, 10]</code>. Then, <code>r = np.searchsorted(a, v)</code> would produce <code>r = [2, 0, 4]</code>. Observe that <code>v[0] = 5</code> needs to be inserted into <code>a</code> before <code>7</code>, which is at <code>a[2]</code>. Thus, <code>r[0] = 2</code> because that is the index in <code>a</code> before which <code>v[0]</code> needs to be inserted.
+</p>
+<p>
+Similarly, <code>v[1] = 0</code> needs to be inserted before <code>a[0] = 1</code>, so <code>r[1] = 0</code>. Finally, <code>v[2] = 10</code> needs to be inserted at the end of the array, i.e., at index <code>r[2] = 4</code> (even though this is <em>currently</em> not a valid index for <code>a</code> &mdash; valid indices run from 0 through 3 &mdash; it would be valid after the insertion).
+</p>
+<p>
+Note that the <em>length</em> of the returned array <code>r</code> is equal to the length of <code>v</code>, while the <em>elements</em> of <code>r</code> are between <code>0</code> and <code>len(a)</code> (inclusive).
+</p>
+</blockquote>
 
 </div>
 </div>
