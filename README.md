@@ -15,7 +15,7 @@ cd
 if on a mac open terminal and type
 
 ```
-cd /Volumes/Brain2022
+cd /Volumes/Brain2022/swdb_2022
 ```
 
  and on any platform run
