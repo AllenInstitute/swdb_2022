@@ -14615,13 +14615,14 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-### Visual stimuli refresher
+<h3> Visual stimuli refresher </h3>
 
 As a reminder, every recording session consisted of three major visual stimulus epochs in the following order (diagrammed below):
-- An active behavior session during which the mouse performed the change detection task
-- Receptive field mapping and full-field flash stimuli
-- 'Passive' replay of stimulus shown during active behavior, but without the lickspout so the mouse can no longer respond.
-
+<ul>
+    <li>An active behavior session during which the mouse performed the change detection task</li>
+    <li>Receptive field mapping and full-field flash stimuli</li>
+    <li>'Passive' replay of stimulus shown during active behavior, but without the lickspout so the mouse can no longer respond.</li> 
+</ul>
 </div>
 </div>
 </div>
@@ -14650,49 +14651,20 @@ As a reminder, every recording session consisted of three major visual stimulus 
 
 Descriptions of each stimulus block in <code>stimulus_presentations['stimulus_block']</code>
 
-**block 0**: Change detection task. Natural images are flashed repeatedly and the mouse is rewarded for licking when the identity of the image changes. You can find more info about this task [here](http://portal.brain-map.org/explore/circuits/visual-behavior-neuropixels?edit&language=en).
+<p><b>block 0</b>: Change detection task. Natural images are flashed repeatedly and the mouse is rewarded for licking when the identity of the image changes. You can find more info about this task <a href="http://portal.brain-map.org/explore/circuits/visual-behavior-neuropixels?edit&language=en">here</a>.
 
-**block 1**: Brief gray screen
+<p><b>block 1</b>: Brief gray screen
 
-**block 2**: Receptive field mapping using gabor stimuli. For more details on this stimulus consult [this notebook](https://allensdk.readthedocs.io/en/latest/_static/examples/nb/ecephys_receptive_fields.html).
+<p><b>block 2</b>: Receptive field mapping using gabor stimuli. For more details on this stimulus consult <a href="https://allensdk.readthedocs.io/en/latest/_static/examples/nb/ecephys_receptive_fields.html">this notebook</a>.
 
-**block 3**: Longer gray screen
+<p><b>block 3</b>: Longer gray screen
 
-**block 4**: Full-field flashes, shown at 80% contrast. Flashes can be black (color = -1) or white (color = 1).
+<p><b>block 4</b>: Full-field flashes, shown at 80% contrast. Flashes can be black (color = -1) or white (color = 1).
 
-**block 5**: Passive replay. Frame-for-frame replay of the stimulus shown during the change detection task (block 0), but now with the lick spout retracted so the animal can no longer engage in the task.
-
-
-For this exercise, we will focus on **block 0** and **block 5**, the **active behavior** and the **passive replay** of the same images.
-
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div style="background: #DFF0D8; border-radius: 3px; padding: 10px;">
-
-**Exercise 2.1: Plot neural activity from VISp averaged across Active vs. Passive image changes from one ephys session**
-
-* 2.1.1: Load an ephys session
-* 2.1.2: Load neural data
-* 2.1.3: Filter for good quality VISp units 
-* 2.1.4: Find timepoints of image changes
-* 2.1.5: Align VISp activity to changes
-* 2.1.6: Find indices of Active and Passive changes
-* 2.1.7: Take the mean across units and Active vs. Passive trials
-* 2.1.8: Plot mean VISp activity for Active vs. Passive changes
-
-Hint: we did something similar during the Tutorial, but for Novel vs. Familiar image changes
+<p><b>block 5</b>: Passive replay. Frame-for-frame replay of the stimulus shown during the change detection task (block 0), but now with the lick spout retracted so the animal can no longer engage in the task.
 
 
-Bonus: Plot baseline-subtracted Active vs. Passive change responses
+For this exercise, we will focus on <b>block 0</b> and <b>block 5</b>, the <b>active behavior</b> and the <b>passive replay</b> of the same images.
 
 </div>
 </div>
@@ -14707,11 +14679,40 @@ Bonus: Plot baseline-subtracted Active vs. Passive change responses
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="background: #DFF0D8; border-radius: 3px; padding: 10px;">
 
-**2.1.1: Load an ephys session**
+<b>Exercise 2.1: Plot neural activity from VISp averaged across Active vs. Passive image changes from one ephys session</b>
+<ul>
+    <li>2.1.1: Load an ephys session</li>
+    <li>2.1.2: Load neural data</li>
+    <li>2.1.3: Filter for good quality VISp units </li>
+    <li>2.1.4: Find timepoints of image changes</li>
+    <li>2.1.5: Align VISp activity to changes</li>
+    <li>2.1.6: Find indices of Active and Passive changes</li>
+    <li>2.1.7: Take the mean across units and Active vs. Passive trials</li>
+    <li>2.1.8: Plot mean VISp activity for Active vs. Passive changes</li>
+</ul>
 
-Feel free to load the same session from the tutorial. Or if you're feeling adventurous, load a different one!
+<p>Hint: we did something similar during the Tutorial, but for Novel vs. Familiar image changes
 
-Hint: First, initialize the cache. Next, load the ecephys_session_table, choose a session, and load it.
+<p>Bonus: Plot baseline-subtracted Active vs. Passive change responses
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div style="background: #DFF0D8; border-radius: 3px; padding: 10px;">
+
+<b>2.1.1: Load an ephys session</b>
+
+<p>Feel free to load the same session from the tutorial. Or if you're feeling adventurous, load a different one!
+
+<p>Hint: First, initialize the cache. Next, load the ecephys_session_table, choose a session, and load it.
 
 </div>
 </div>
@@ -14798,9 +14799,9 @@ Hint: First, initialize the cache. Next, load the ecephys_session_table, choose 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="background: #DFF0D8; border-radius: 3px; padding: 10px;">
 
-**2.1.2: Load neural data**
+<b>2.1.2: Load neural data</b>
 
-What do we need to load from the session object in order to plot the spiking activity of units from VISp?
+<p>What do we need to load from the session object in order to plot the spiking activity of units from VISp?
 
 </div>
 </div>
@@ -14837,7 +14838,7 @@ What do we need to load from the session object in order to plot the spiking act
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="background: #DFF0D8; border-radius: 3px; padding: 10px;">
 
-**2.1.3: Filter for good quality VISp units**
+<b>2.1.3: Filter for good quality VISp units</b>
 
 </div>
 </div>
@@ -14882,9 +14883,9 @@ What do we need to load from the session object in order to plot the spiking act
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="background: #DFF0D8; border-radius: 3px; padding: 10px;">
 
-**2.1.4: Find timepoints of image changes**
+<b>2.1.4: Find timepoints of image changes</b>
 
-Hint: most stimulus presentations are not changes. Make a new table that consists of only image changes.
+<p>Hint: most stimulus presentations are not changes. Make a new table that consists of only image changes.
 
 </div>
 </div>
@@ -14933,9 +14934,9 @@ Hint: most stimulus presentations are not changes. Make a new table that consist
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="background: #DFF0D8; border-radius: 3px; padding: 10px;">
 
-**2.1.5: Align VISp activity to image changes**
+<b>2.1.5: Align VISp activity to image changes</b>
 
-We will use the <code>makePSTH</code> and <code>make_neuron_time_trials_array</code> functions, so we should define them here or import them.
+<p>We will use the <code>makePSTH</code> and <code>make_neuron_time_trials_array</code> functions, so we should define them here or import them.
 
 </div>
 </div>
@@ -15059,9 +15060,9 @@ We will use the <code>makePSTH</code> and <code>make_neuron_time_trials_array</c
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="background: #DFF0D8; border-radius: 3px; padding: 10px;">
 
-**2.1.6: Find indices of Active and Passive changes**
+<b>2.1.6: Find indices of Active and Passive changes</b>
 
-Hint: remember to use your new table of image changes, otherwise you might find the wrong indices
+<p>Hint: remember to use your new table of image changes, otherwise you might find the wrong indices
 
 </div>
 </div>
@@ -15115,7 +15116,7 @@ Hint: remember to use your new table of image changes, otherwise you might find 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="background: #DFF0D8; border-radius: 3px; padding: 10px;">
 
-**2.1.7: Take the mean across units and Active vs. Passive trials**
+<b>2.1.7: Take the mean across units and Active vs. Passive trials</b>
 
 </div>
 </div>
@@ -15130,7 +15131,7 @@ Hint: remember to use your new table of image changes, otherwise you might find 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="background: #DFF0D8; border-radius: 3px; padding: 10px;">
 
-**2.1.8: Plot mean VISp activity for Active vs. Passive changes**
+<b>2.1.8: Plot mean VISp activity for Active vs. Passive changes</b>
 
 </div>
 </div>
@@ -15232,11 +15233,12 @@ jp-needs-light-background
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="background: #DFF0D8; border-radius: 3px; padding: 10px;">
 
-**Bonus: baseline-subtracted PSTHs**
+<b>Bonus: baseline-subtracted PSTHs</b>
 
-* If what we are interested in is the stimulus-evoked changes in firing rate, we need to correct for the baseline.
-
-* Now, before averaging over neurons, first subtract each neuron's baseline firing rate (0.2 - 0 sec before the change).
+<ul>
+<li>If what we are interested in is the stimulus-evoked changes in firing rate, we need to correct for the baseline.</li>
+<li>Now, before averaging over neurons, first subtract each neuron's baseline firing rate (0.2 - 0 sec before the change).</li>
+</ul>
 
 </div>
 </div>
@@ -15326,15 +15328,15 @@ jp-needs-light-background
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="background: #DFF0D8; border-radius: 3px; padding: 10px;">
 
-**Exercise 2.2: Plot running and pupil area averaged across Active vs. Passive image changes from the same session**
+<b>Exercise 2.2: Plot running and pupil area averaged across Active vs. Passive image changes from the same session</b>
 
 The lick spout is retracted, so mice are no longer performing behavior and there are no licks. Let's look at other measures of behavior, running and pupil size.
-
-* 2.2.1: Get running speed and eye tracking tables
-* 2.2.2: Align running and pupil data to Active vs. Passive changes
-* 2.2.3: Average across trials
-* 2.2.4: Plot these averages
-
+<ul>
+    <li>2.2.1: Get running speed and eye tracking tables</li>
+    <li>2.2.2: Align running and pupil data to Active vs. Passive changes</li>
+    <li>2.2.3: Average across trials</li>
+    <li>2.2.4: Plot these averages</li>
+</ul>
 </div>
 </div>
 </div>
@@ -15348,7 +15350,7 @@ The lick spout is retracted, so mice are no longer performing behavior and there
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="background: #DFF0D8; border-radius: 3px; padding: 10px;">
 
-**2.2.1: Get runnning speed and eye tracking tables**
+<b>2.2.1: Get runnning speed and eye tracking tables</b>
 
 </div>
 </div>
@@ -15384,7 +15386,7 @@ The lick spout is retracted, so mice are no longer performing behavior and there
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="background: #DFF0D8; border-radius: 3px; padding: 10px;">
 
-**2.2.2: Align running and pupil data to Active changes**
+<b>2.2.2: Align running and pupil data to Active changes</b>
 
 </div>
 </div>
@@ -15449,7 +15451,7 @@ The lick spout is retracted, so mice are no longer performing behavior and there
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="background: #DFF0D8; border-radius: 3px; padding: 10px;">
 
-**2.2.3: Align running and pupil data to Passive changes**
+<b>2.2.3: Align running and pupil data to Passive changes</b>
 
 </div>
 </div>
@@ -15502,7 +15504,7 @@ The lick spout is retracted, so mice are no longer performing behavior and there
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="background: #DFF0D8; border-radius: 3px; padding: 10px;">
 
-**2.2.4: Average across trials and plot**
+<b>2.2.4: Average across trials and plot</b>
 
 </div>
 </div>
