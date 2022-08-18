@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title><p>VBN_Exercise_1_Lick_Latencies_solutions</p></title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>VBN_Exercise_1_Lick_Latencies_solutions</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14618,23 +14618,23 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">platform</span>
 <span class="n">platstring</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">platform</span><span class="p">()</span>
 
-<span class="n">data_dirname</span> <span class="o">=</span> <span class="s1">'visual-behavior-neuropixels'</span>
+<span class="n">data_dirname</span> <span class="o">=</span> <span class="s1">&#39;visual-behavior-neuropixels&#39;</span>
 <span class="n">use_static</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="k">if</span> <span class="s1">'Darwin'</span> <span class="ow">in</span> <span class="n">platstring</span> <span class="ow">or</span> <span class="s1">'macOS'</span> <span class="ow">in</span> <span class="n">platstring</span><span class="p">:</span>
+<span class="k">if</span> <span class="s1">&#39;Darwin&#39;</span> <span class="ow">in</span> <span class="n">platstring</span> <span class="ow">or</span> <span class="s1">&#39;macOS&#39;</span> <span class="ow">in</span> <span class="n">platstring</span><span class="p">:</span>
     <span class="c1"># macOS </span>
-    <span class="n">data_root</span> <span class="o">=</span> <span class="s2">"/Volumes/Brain2022/"</span>
-<span class="k">elif</span> <span class="s1">'Windows'</span>  <span class="ow">in</span> <span class="n">platstring</span><span class="p">:</span>
+    <span class="n">data_root</span> <span class="o">=</span> <span class="s2">&quot;/Volumes/Brain2022/&quot;</span>
+<span class="k">elif</span> <span class="s1">&#39;Windows&#39;</span>  <span class="ow">in</span> <span class="n">platstring</span><span class="p">:</span>
     <span class="c1"># Windows (replace with the drive letter of USB drive)</span>
-    <span class="n">data_root</span> <span class="o">=</span> <span class="s2">"E:/"</span>
-<span class="k">elif</span> <span class="p">(</span><span class="s1">'amzn'</span> <span class="ow">in</span> <span class="n">platstring</span><span class="p">):</span>
+    <span class="n">data_root</span> <span class="o">=</span> <span class="s2">&quot;E:/&quot;</span>
+<span class="k">elif</span> <span class="p">(</span><span class="s1">&#39;amzn&#39;</span> <span class="ow">in</span> <span class="n">platstring</span><span class="p">):</span>
     <span class="c1"># then on AWS</span>
-    <span class="n">data_root</span> <span class="o">=</span> <span class="s2">"/data/"</span>
-    <span class="n">data_dirname</span> <span class="o">=</span> <span class="s1">'visual-behavior-neuropixels-data'</span>
+    <span class="n">data_root</span> <span class="o">=</span> <span class="s2">&quot;/data/&quot;</span>
+    <span class="n">data_dirname</span> <span class="o">=</span> <span class="s1">&#39;visual-behavior-neuropixels-data&#39;</span>
     <span class="n">use_static</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="c1"># then your own linux platform</span>
     <span class="c1"># EDIT location where you mounted hard drive</span>
-    <span class="n">data_root</span> <span class="o">=</span> <span class="s2">"/media/$USERNAME/Brain2022/"</span>
+    <span class="n">data_root</span> <span class="o">=</span> <span class="s2">&quot;/media/$USERNAME/Brain2022/&quot;</span>
 </pre></div>
 
      </div>
@@ -14675,18 +14675,25 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-## Exercise 1: Playing with the trials table and examining licking behavior
+<h2>Exercise 1: Playing with the trials table and examining licking behavior</h2>
 
+<p>
 In this starter exercise, we'll practise working with the trials table and examine the licking behavior of one of the mice in the dataset. For this exercise, there are comments with detailed prompts that act as guiderails.
+</p>
 
+<p>
 The tasks we'll undertake are:
+</p>
+<ol>
+<li>Creating a new column for trial "type" (hit, miss, false alarm, etc.) in the trials table and plotting the number trials of each type.</li>
+<li>Comparing lick times (from start of each trial) for hit trials and aborted trials</li>
+<li>Comparing lick latency from the stimulus flash for hit, aborted and false alarm trials</li>
+<li>Computing lick bouts</li>
+</ol>
 
-1. Creating a new column for trial "type" (hit, miss, false alarm, etc.) in the trials table and plotting the number trials of each type.
-1. Comparing lick times (from start of each trial) for hit trials and aborted trials
-1. Comparing lick latency from the stimulus flash for hit, aborted and false alarm trials
-1. Computing lick bouts
-
-**Note:** With all of these exercises, there are multiple ways of accomplishing the same end goal. For each of the tasks in Exercise 1, we've provided prompts that take you through one logical sequence of steps to complete these analyses (which we think is simple and teaches useful concepts). The objective is to give you a relatively easy algorithm you can follow, so that you can first focus on getting used to writing pandas code. But feel free to try completing the task objectives using your own algorithm first, and consulting our prompts if you get stuck.
+<p>
+<strong>Note:</strong> With all of these exercises, there are multiple ways of accomplishing the same end goal. For each of the tasks in Exercise 1, we've provided prompts that take you through one logical sequence of steps to complete these analyses (which we think is simple and teaches useful concepts). The objective is to give you a relatively easy algorithm you can follow, so that you can first focus on getting used to writing pandas code. But feel free to try completing the task objectives using your own algorithm first, and consulting our prompts if you get stuck.
+</p>
 
 </div>
 </div>
@@ -14700,7 +14707,7 @@ The tasks we'll undertake are:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Setup: first, let's get the relevant tables</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Setup: first, let&#39;s get the relevant tables</span>
 <span class="n">session_id</span> <span class="o">=</span> <span class="mi">1065437523</span>  <span class="c1"># This is a good session for looking at lick behavior</span>
 <span class="n">session</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_ecephys_session</span><span class="p">(</span><span class="n">ecephys_session_id</span><span class="o">=</span><span class="n">session_id</span><span class="p">)</span>
 
@@ -14723,13 +14730,19 @@ The tasks we'll undertake are:
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-### 1.1 Creating a new column for trial "type" in the trials table, and plotting the number trials of each type
+<h3>1.1 Creating a new column for trial "type" in the trials table, and plotting the number trials of each type</h3>
 
-The different types of trials are: `hit`, `miss`, `false_alarm`, `correct_reject`, `aborted`, and `auto_rewarded`. Each of these trial types has a separate boolean column in the `trials` table indicating whether a particular trial is of that type. For any given trial, only one of these columns will be True, and the rest will be False.
+<p>
+The different types of trials are: <code>hit</code>, <code>miss</code>, <code>false_alarm</code>, <code>correct_reject</code>, <code>aborted</code>, and <code>auto_rewarded</code>. Each of these trial types has a separate boolean column in the <code>trials</code> table indicating whether a particular trial is of that type. For any given trial, only one of these columns will be True, and the rest will be False.
+</p>
 
-We are going to convert these boolean columns into a new column in the `trials` table called `trial_type`, which contains the trial type as a string. Then, we'll create a bar plot indicating how many trials there are of each type.
+<p>
+We are going to convert these boolean columns into a new column in the <code>trials</code> table called <code>trial_type</code>, which contains the trial type as a string. Then, we'll create a bar plot indicating how many trials there are of each type.
+</p>
 
+<p>
 If you want to try coming up with the logic for this on your own (i.e., without following the prompts), then this is a good point to pause, think and/or try coding.
+</p>
 
 </div>
 </div>
@@ -14744,7 +14757,7 @@ If you want to try coming up with the logic for this on your own (i.e., without 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.1.a:** Create a new column called `trial_type` filled with NaNs.
+<strong>Prompt 1.1.a:</strong> Create a new column called <code>trial_type</code> filled with NaNs.
 
 </div>
 </div>
@@ -14758,7 +14771,7 @@ If you want to try coming up with the logic for this on your own (i.e., without 
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trials</span><span class="p">[</span><span class="s1">'trial_type'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trials</span><span class="p">[</span><span class="s1">&#39;trial_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 </pre></div>
 
      </div>
@@ -14775,7 +14788,7 @@ If you want to try coming up with the logic for this on your own (i.e., without 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.1.b:** Select the hit trials (rows of the trials table where the column `hit` is True), and set the `trial_type` column for those rows to be equal to the string `'hit'`.
+<strong>Prompt 1.1.b:</strong> Select the hit trials (rows of the trials table where the column <code>hit</code> is True), and set the <code>trial_type</code> column for those rows to be equal to the string <code>'hit'</code>.
 
 </div>
 </div>
@@ -14789,7 +14802,7 @@ If you want to try coming up with the logic for this on your own (i.e., without 
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trials</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">trials</span><span class="p">[</span><span class="s1">'hit'</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">'trial_type'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'hit'</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trials</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">trials</span><span class="p">[</span><span class="s1">&#39;hit&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;trial_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;hit&#39;</span>
 </pre></div>
 
      </div>
@@ -14806,9 +14819,13 @@ If you want to try coming up with the logic for this on your own (i.e., without 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
+<p>
 We'll now repeat this action for all trial types using a for loop.
+</p>
 
-**Prompt 1.1.c:** Create a python list with the names of all the different trial types (no harm in including `'hit'` again). Then, using a for loop over the list of trial types you just created, select rows of the trials table of each type, and assign the `trial_type` column for those rows to equal the name of the trial's type.
+<p>
+<strong>Prompt 1.1.c:</strong> Create a python list with the names of all the different trial types (no harm in including <code>'hit'</code> again). Then, using a for loop over the list of trial types you just created, select rows of the trials table of each type, and assign the <code>trial_type</code> column for those rows to equal the name of the trial's type.
+</p>
 
 </div>
 </div>
@@ -14822,10 +14839,10 @@ We'll now repeat this action for all trial types using a for loop.
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">col_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'hit'</span><span class="p">,</span> <span class="s1">'miss'</span><span class="p">,</span> <span class="s1">'false_alarm'</span><span class="p">,</span> <span class="s1">'correct_reject'</span><span class="p">,</span> <span class="s1">'aborted'</span><span class="p">,</span> <span class="s1">'auto_rewarded'</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">col_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hit&#39;</span><span class="p">,</span> <span class="s1">&#39;miss&#39;</span><span class="p">,</span> <span class="s1">&#39;false_alarm&#39;</span><span class="p">,</span> <span class="s1">&#39;correct_reject&#39;</span><span class="p">,</span> <span class="s1">&#39;aborted&#39;</span><span class="p">,</span> <span class="s1">&#39;auto_rewarded&#39;</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">col_names</span><span class="p">:</span>
-    <span class="n">trials</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">trials</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">'trial_type'</span><span class="p">]</span> <span class="o">=</span> <span class="n">col</span>
+    <span class="n">trials</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">trials</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;trial_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">col</span>
 </pre></div>
 
      </div>
@@ -14845,10 +14862,10 @@ We'll now repeat this action for all trial types using a for loop.
 <span class="c1"># at which the maximum of a sequence of values occurs.</span>
 <span class="c1"># Below, we have chosen only the columns we want, and we pass axis=1 to idxmax, to take the maximum over</span>
 <span class="c1"># columns (axis=0 would find the row-index having the maximum value for each column)</span>
-<span class="c1"># Also note that when taking the "maximum" over boolean values, True is interpreted as 1 and False as 0,</span>
+<span class="c1"># Also note that when taking the &quot;maximum&quot; over boolean values, True is interpreted as 1 and False as 0,</span>
 <span class="c1"># hence the index of the maximum occurs wherever a True is found.</span>
 
-<span class="c1"># trials['trial_type'] = trials[col_names].idxmax(axis=1)</span>
+<span class="c1"># trials[&#39;trial_type&#39;] = trials[col_names].idxmax(axis=1)</span>
 </pre></div>
 
      </div>
@@ -14865,7 +14882,7 @@ We'll now repeat this action for all trial types using a for loop.
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.1.d:** Examine the trials table to see how that worked
+<strong>Prompt 1.1.d:</strong> Examine the trials table to see how that worked
 
 </div>
 </div>
@@ -15253,7 +15270,7 @@ We'll now repeat this action for all trial types using a for loop.
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.1.e:** Now, use the `value_counts` function on the `trials` data frame to get the number of rows having each of these trial types. Rename the output Series to `'trial_type_tally'`, which makes more sense.
+<strong>Prompt 1.1.e:</strong> Now, use the <code>value_counts</code> function on the <code>trials</code> data frame to get the number of rows having each of these trial types. Rename the output Series to <code>'trial_type_tally'</code>, which makes more sense.
 
 </div>
 </div>
@@ -15267,7 +15284,7 @@ We'll now repeat this action for all trial types using a for loop.
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trial_type_counts</span> <span class="o">=</span> <span class="n">trials</span><span class="p">[</span><span class="s1">'trial_type'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">'trial_type_tally'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trial_type_counts</span> <span class="o">=</span> <span class="n">trials</span><span class="p">[</span><span class="s1">&#39;trial_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;trial_type_tally&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15284,7 +15301,7 @@ We'll now repeat this action for all trial types using a for loop.
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.1.f:** Make the index of this series a new column using `reset_index`, and rename the new column to `trial_type`.
+<strong>Prompt 1.1.f:</strong> Make the index of this series a new column using <code>reset_index</code>, and rename the new column to <code>trial_type</code>.
 
 </div>
 </div>
@@ -15298,7 +15315,7 @@ We'll now repeat this action for all trial types using a for loop.
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trial_type_counts</span> <span class="o">=</span> <span class="n">trial_type_counts</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'index'</span><span class="p">:</span> <span class="s1">'trial_type'</span><span class="p">})</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trial_type_counts</span> <span class="o">=</span> <span class="n">trial_type_counts</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="s1">&#39;trial_type&#39;</span><span class="p">})</span>
 </pre></div>
 
      </div>
@@ -15315,7 +15332,7 @@ We'll now repeat this action for all trial types using a for loop.
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.1.g:** Finally, plot these values using a horizontal bar plot. When using matplotlib, you can use the `plt.barh` function: supply the `y`, `width` and `tick_label` parameters. Give the plot a meaningful title.
+<strong>Prompt 1.1.g:</strong> Finally, plot these values using a horizontal bar plot. When using matplotlib, you can use the <code>plt.barh</code> function: supply the <code>y</code>, <code>width</code> and <code>tick_label</code> parameters. Give the plot a meaningful title.
 
 </div>
 </div>
@@ -15331,9 +15348,9 @@ We'll now repeat this action for all trial types using a for loop.
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Using matplotlib</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trial_type_counts</span><span class="p">))[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="n">trial_type_counts</span><span class="p">[</span><span class="s1">'trial_type_tally'</span><span class="p">],</span>
-         <span class="n">tick_label</span><span class="o">=</span><span class="n">trial_type_counts</span><span class="p">[</span><span class="s1">'trial_type'</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Number of trials of each type'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trial_type_counts</span><span class="p">))[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="n">trial_type_counts</span><span class="p">[</span><span class="s1">&#39;trial_type_tally&#39;</span><span class="p">],</span>
+         <span class="n">tick_label</span><span class="o">=</span><span class="n">trial_type_counts</span><span class="p">[</span><span class="s1">&#39;trial_type&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Number of trials of each type&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15385,7 +15402,7 @@ jp-needs-light-background
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15394,8 +15411,8 @@ jp-needs-light-background
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Or, using seaborn</span>
-<span class="c1"># plt.figure()</span>
-<span class="c1"># sns.barplot(data=trial_type_counts, x='trial_type_tally', y='trial_type')</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">trial_type_counts</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;trial_type_tally&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;trial_type&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15403,6 +15420,50 @@ jp-needs-light-background
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&lt;AxesSubplot:xlabel=&#39;trial_type_tally&#39;, ylabel=&#39;trial_type&#39;&gt;</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,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
+"
+class="
+jp-needs-light-background
+"
+>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15412,15 +15473,23 @@ jp-needs-light-background
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-### 1.2 Comparing lick times for hit trials and aborted trials
+<h3>1.2 Comparing lick times for hit trials and aborted trials</h3>
 
-Next, we'll compute the time between the start of the trial and the point at which the mouse licked, and compare this time interval across aborted trials and hit trials. To do this, we'll first create a new column in the `trials` table containing the aforementioned time interval, and then plot histograms of the time interval for hit and aborted trials.
+<p>
+Next, we'll compute the time between the start of the trial and the point at which the mouse licked, and compare this time interval across aborted trials and hit trials. To do this, we'll first create a new column in the <code>trials</code> table containing the aforementioned time interval, and then plot histograms of the time interval for hit and aborted trials.
+</p>
 
+<p>
 Since the mouse correctly waited until the stimulus changed in hit trials, the wait time distribution should closely match the distribution of change times. On the other hand, the distribution of lick times should be much smaller in the case of aborted trials: but this will depend on how the mouse licked in aborted trials.
+</p>
 
-> **Note**: Do _not_ use the 'licks' _column_ from the `trials` table to get the times at which licks occurred. Use information from the `licks` _table_ instead. This is because the `trials` table contains lick timestamps as recorded by the task control computer, while the `licks` table contains lick timestamps as recorded by the lick sensor; the latter is more accurate.
+<blockquote>
+    <strong>Note</strong>: Do <em>not</em> use the 'licks' <em>column</em> from the <code>trials</code> table to get the times at which licks occurred. Use information from the <code>licks</code> <em>table</em> instead. This is because the <code>trials</code> table contains lick timestamps as recorded by the task control computer, while the <code>licks</code> table contains lick timestamps as recorded by the lick sensor; the latter is more accurate.
+</blockquote>
 
+<p>
 If you want to try coming up with the logic for this on your own (i.e., without following the prompts), then this is a good point to pause, think and/or try coding.
+</p>
 
 </div>
 </div>
@@ -15435,7 +15504,7 @@ If you want to try coming up with the logic for this on your own (i.e., without 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.2.a:** First, find the initial lick in each trial. The `licks` table contains a `timestamps` column that has all time instants at which the mouse licked. Use numpy's `np.searchsorted` function to find the lick timestamps that come immediately after each trial's `start_time`. Add these indices as a new column to the `trials` table called `first_lick_indices`.
+<strong>Prompt 1.2.a:</strong> First, find the initial lick in each trial. The <code>licks</code> table contains a <code>timestamps</code> column that has all time instants at which the mouse licked. Use numpy's <code>np.searchsorted</code> function to find the lick timestamps that come immediately after each trial's <code>start_time</code>. Add these indices as a new column to the <code>trials</code> table called <code>first_lick_indices</code>.
 
 </div>
 </div>
@@ -15449,7 +15518,7 @@ If you want to try coming up with the logic for this on your own (i.e., without 
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trials</span><span class="p">[</span><span class="s1">'first_lick_indices'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">licks</span><span class="p">[</span><span class="s1">'timestamps'</span><span class="p">],</span> <span class="n">trials</span><span class="p">[</span><span class="s1">'start_time'</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trials</span><span class="p">[</span><span class="s1">&#39;first_lick_indices&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">licks</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">],</span> <span class="n">trials</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">])</span>
 
 <span class="n">trials</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -15681,11 +15750,17 @@ If you want to try coming up with the logic for this on your own (i.e., without 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.2.b:** Now that we have the indices of rows in the `licks` table that correspond to the first lick in each trial, we can use these indices to find the _times_ at which the first licks occurred.
+<p>
+<strong>Prompt 1.2.b:</strong> Now that we have the indices of rows in the <code>licks</code> table that correspond to the first lick in each trial, we can use these indices to find the <em>times</em> at which the first licks occurred.
+</p>
 
-But, the `first_lick_indices` we have computed cannot be used directly to index the licks table because the last trial (or the last few) may have had no licks. In this case, `searchsorted` returns an index one greater than the number of rows in the licks table (to indicate that these trials started _after_ the last lick).
+<p>
+But, the <code>first_lick_indices</code> we have computed cannot be used directly to index the licks table because the last trial (or the last few) may have had no licks. In this case, <code>searchsorted</code> returns an index one greater than the number of rows in the licks table (to indicate that these trials started <em>after</em> the last lick).
+</p>
 
-Examine the last few rows of the `first_lick_indices` column and you'll notice that some indices come after the last index in the `licks` table. Remove these rows and create a new dataframe of subselected trials, which only contains those `first_lick_indices` that correspond to valid licks.
+<p>
+Examine the last few rows of the <code>first_lick_indices</code> column and you'll notice that some indices come after the last index in the <code>licks</code> table. Remove these rows and create a new dataframe of subselected trials, which only contains those <code>first_lick_indices</code> that correspond to valid licks.
+</p>
 
 </div>
 </div>
@@ -15699,8 +15774,8 @@ Examine the last few rows of the `first_lick_indices` column and you'll notice t
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">trials</span><span class="p">[</span><span class="s1">'first_lick_indices'</span><span class="p">]</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">subselected_trials</span> <span class="o">=</span> <span class="n">trials</span><span class="p">[</span><span class="n">trials</span><span class="p">[</span><span class="s1">'first_lick_indices'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">licks</span><span class="p">)]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">trials</span><span class="p">[</span><span class="s1">&#39;first_lick_indices&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">subselected_trials</span> <span class="o">=</span> <span class="n">trials</span><span class="p">[</span><span class="n">trials</span><span class="p">[</span><span class="s1">&#39;first_lick_indices&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">licks</span><span class="p">)]</span>
 
 <span class="n">subselected_trials</span>
 </pre></div>
@@ -16099,7 +16174,7 @@ Name: first_lick_indices, dtype: int64
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.2.c:** Use the `first_lick_indices` from the subselected trials to _index_ the timestamps column of the `licks` table; store the timestamps in a new pandas Series.
+<strong>Prompt 1.2.c:</strong> Use the <code>first_lick_indices</code> from the subselected trials to _index_ the timestamps column of the <code>licks</code> table; store the timestamps in a new pandas Series.
 
 </div>
 </div>
@@ -16113,7 +16188,7 @@ Name: first_lick_indices, dtype: int64
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">first_lick_timestamps</span> <span class="o">=</span> <span class="n">licks</span><span class="p">[</span><span class="s1">'timestamps'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">subselected_trials</span><span class="p">[</span><span class="s1">'first_lick_indices'</span><span class="p">]]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">first_lick_timestamps</span> <span class="o">=</span> <span class="n">licks</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">subselected_trials</span><span class="p">[</span><span class="s1">&#39;first_lick_indices&#39;</span><span class="p">]]</span>
 </pre></div>
 
      </div>
@@ -16130,7 +16205,7 @@ Name: first_lick_indices, dtype: int64
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.2.d:** By default, this Series will inherit its index from the `licks` table. Change the index of this new Series to the index of the subselected trials. This is required to add the timestamps of the first licks back to the appropriate rows of the `trials` table.
+<strong>Prompt 1.2.d:</strong> By default, this Series will inherit its index from the <code>licks</code> table. Change the index of this new Series to the index of the subselected trials. This is required to add the timestamps of the first licks back to the appropriate rows of the <code>trials</code> table.
 
 </div>
 </div>
@@ -16161,7 +16236,7 @@ Name: first_lick_indices, dtype: int64
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.2.e:** Add the new Series containing the timestamps of first licks to the `trials` table, in the form of a new column.
+<strong>Prompt 1.2.e:</strong> Add the new Series containing the timestamps of first licks to the <code>trials</code> table, in the form of a new column.
 
 </div>
 </div>
@@ -16176,8 +16251,8 @@ Name: first_lick_indices, dtype: int64
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Note that assignment happens using index correspondence. For trials whose index is not</span>
-<span class="c1"># present in the Series, the 'first_lick_time' column will automatically be assigned NaN.</span>
-<span class="n">trials</span><span class="p">[</span><span class="s1">'first_lick_time'</span><span class="p">]</span> <span class="o">=</span> <span class="n">first_lick_timestamps</span>
+<span class="c1"># present in the Series, the &#39;first_lick_time&#39; column will automatically be assigned NaN.</span>
+<span class="n">trials</span><span class="p">[</span><span class="s1">&#39;first_lick_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">first_lick_timestamps</span>
 <span class="n">trials</span>
 </pre></div>
 
@@ -16552,7 +16627,7 @@ Name: first_lick_indices, dtype: int64
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.2.f:** Create a new column containing the time difference between the start of the trial and the first lick
+<strong>Prompt 1.2.f:</strong> Create a new column containing the time difference between the start of the trial and the first lick
 
 </div>
 </div>
@@ -16566,7 +16641,7 @@ Name: first_lick_indices, dtype: int64
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trials</span><span class="p">[</span><span class="s1">'trial_start_to_first_lick'</span><span class="p">]</span> <span class="o">=</span> <span class="n">trials</span><span class="p">[</span><span class="s1">'first_lick_time'</span><span class="p">]</span> <span class="o">-</span> <span class="n">trials</span><span class="p">[</span><span class="s1">'start_time'</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">trials</span><span class="p">[</span><span class="s1">&#39;trial_start_to_first_lick&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">trials</span><span class="p">[</span><span class="s1">&#39;first_lick_time&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">trials</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -16583,13 +16658,13 @@ Name: first_lick_indices, dtype: int64
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.2.g:** Sub-select only the hit trials and the aborted trials.
+<strong>Prompt 1.2.g:</strong> Sub-select only the hit trials and the aborted trials.
 
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -16597,23 +16672,9 @@ Name: first_lick_indices, dtype: int64
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hit_aborted_trials</span> <span class="o">=</span> <span class="n">trials</span><span class="p">[</span><span class="n">trials</span><span class="p">[</span><span class="s1">'hit'</span><span class="p">]</span> <span class="o">|</span> <span class="n">trials</span><span class="p">[</span><span class="s1">'aborted'</span><span class="p">]]</span>
-</pre></div>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hit_aborted_trials</span> <span class="o">=</span> <span class="n">trials</span><span class="p">[</span><span class="n">trials</span><span class="p">[</span><span class="s1">&#39;hit&#39;</span><span class="p">]</span> <span class="o">|</span> <span class="n">trials</span><span class="p">[</span><span class="s1">&#39;aborted&#39;</span><span class="p">]]</span>
 
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hit_aborted_trials</span>
+<span class="n">hit_aborted_trials</span>
 </pre></div>
 
      </div>
@@ -16631,7 +16692,7 @@ Name: first_lick_indices, dtype: int64
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 
 
 
@@ -16987,10 +17048,14 @@ Name: first_lick_indices, dtype: int64
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.2.h:** Plot a histogram of the time from the start of the trial to the first lick, colored by trial type.
+<p>
+<strong>Prompt 1.2.h:</strong> Plot a histogram of the time from the start of the trial to the first lick, colored by trial type.
 Use bins in steps of 0.75 seconds so that each histogram column represents licks within a stimulus presentation.
+</p>
 
-For plotting, you can call matplotlib's `plt.hist` function twice, once for each trial type. Supply the data, and additionally set the `bins`, `alpha` and `label` arguments. Call `plt.legend()`, which will make use of the label arguments you supplied to create a legend. Don't forget to label your x- and y-axes.
+<p>
+For plotting, you can call matplotlib's <code>plt.hist</code> function twice, once for each trial type. Supply the data, and additionally set the <code>bins</code>, <code>alpha</code> and <code>label</code> arguments. Call <code>plt.legend()</code>, which will make use of the label arguments you supplied to create a legend. Don't forget to label your x- and y-axes.
+</p>
 
 </div>
 </div>
@@ -17001,17 +17066,17 @@ For plotting, you can call matplotlib's `plt.hist` function twice, once for each
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Using matplotlib</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">hit_aborted_trials</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">hit_aborted_trials</span><span class="p">[</span><span class="s1">'aborted'</span><span class="p">],</span> <span class="s1">'trial_start_to_first_lick'</span><span class="p">],</span>
-         <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">'w'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'aborted'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">hit_aborted_trials</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">hit_aborted_trials</span><span class="p">[</span><span class="s1">'hit'</span><span class="p">],</span> <span class="s1">'trial_start_to_first_lick'</span><span class="p">],</span>
-         <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">'w'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'hit'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time from trial start to first lick'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Number of occurrences'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">hit_aborted_trials</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">hit_aborted_trials</span><span class="p">[</span><span class="s1">&#39;aborted&#39;</span><span class="p">],</span> <span class="s1">&#39;trial_start_to_first_lick&#39;</span><span class="p">],</span>
+         <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;aborted&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">hit_aborted_trials</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">hit_aborted_trials</span><span class="p">[</span><span class="s1">&#39;hit&#39;</span><span class="p">],</span> <span class="s1">&#39;trial_start_to_first_lick&#39;</span><span class="p">],</span>
+         <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;hit&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time from trial start to first lick&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of occurrences&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 
@@ -17030,13 +17095,13 @@ For plotting, you can call matplotlib's `plt.hist` function twice, once for each
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.legend.Legend at 0x7f1f72cff940&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x7f6a80aec820&gt;</pre>
 </div>
 
 </div>
@@ -17064,22 +17129,67 @@ jp-needs-light-background
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Using seaborn</span>
-<span class="c1">#plt.figure()</span>
-<span class="c1">#sns.histplot(hit_aborted_trials, x='trial_start_to_first_lick', hue='trial_type', bins=np.arange(0, 12, 0.75))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">hit_aborted_trials</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;trial_start_to_first_lick&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;trial_type&#39;</span><span class="p">,</span>
+             <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&lt;AxesSubplot:xlabel=&#39;trial_start_to_first_lick&#39;, ylabel=&#39;Count&#39;&gt;</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,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
+"
+class="
+jp-needs-light-background
+"
+>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -17106,13 +17216,23 @@ Does anything about this plot look unusual? What sort of distribution should we 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-### 1.3  Comparing lick latency from the stimulus flash for hit trials and aborted/false alarm trials
+<h3>1.3  Comparing lick latency from the stimulus flash for hit trials and aborted/false alarm trials</h3>
 
-Next, we'll compare the latency between the first lick in each trial and the _preceding stimulus flash_ (rather than the start of the trial), across hit, aborted and false alarm trials.
+<p>
+Next, we'll compare the latency between the first lick in each trial and the start of the <em>preceding stimulus flash</em> (rather than the start of the trial), across hit, aborted and false alarm trials.
+</p>
 
-To get information about stimulus presentations, we'll have to look at the `stimulus_presentations` table. Each stimulus presentation (i.e., flash) occurs within a trial: we'll associate each stimulus presentation to its trial, and then use the first lick times we computed in Exercise 1.2 to find the stimulus presentation preceding each lick.
+<p>    
+To get information about stimulus presentations, we'll have to look at the <code>stimulus_presentations</code> table. Recall that every trial consists of multiple stimulus presentations (i.e., image flashes). We'll associate each stimulus presentation with the trial it falls within: this will involve merging the <code>stimulus_presentations</code> and <code>trials</code> tables. Then, we'll use the first lick times that we computed for each trial in Exercise 1.2 to find the stimulus presentation preceding each lick. Finally, we'll plot histograms of the lick latency for hit, aborted and false alarm trials.
+</p>
 
-For hit trials, we expect the licks to be stimulus-locked, with a response after a clear delay. If this is also true for aborted trials, it could mean that the mice are trying to use a "timing" strategy: licking after a particular number of flashes, rather than licking on the flash after the image changes.
+<p>
+For hit trials, we expect the licks to be stimulus-locked, with a response after a clear delay. Based on the histograms we plotted in Exercise 1.2, this mouse appears to be licking in aborted trials at time intervals that are similar to how it licks on hit trials. This suggests that its licks are not impulsive or random, rather, they might be visually evoked. In this exercise, we'll see whether the mouse's licking is stimulus-locked on aborted trials too.
+</p>
+
+<p>
+If you want to try coming up with the logic for this on your own (i.e., without following the prompts), then this is a good point to pause, think and/or try coding.
+</p>
 
 </div>
 </div>
@@ -17127,7 +17247,13 @@ For hit trials, we expect the licks to be stimulus-locked, with a response after
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.3.a:** First, use `searchsorted` to find the trial index that starts _before_ the `start_time` of each stimulus presentation. Assign these indices to a new column of the stimulus presentation table called `trials_id`.
+<p>
+<strong>Prompt 1.3.a:</strong> First, use <code>searchsorted</code> to find the trial index that starts _before_ the <code>start_time</code> of each stimulus presentation. Assign these indices to a new column of the stimulus presentations table called <code>trials_id</code>.
+</p>
+
+<p>
+Examine the stimulus presentations table to see how this looks. The new <code>trials_id</code> column should tell us which trial each stimulus presentation was part of, so that we can merge the <code>stimulus_presentations</code> table with the <code>trials</code> table in the next step.
+</p>
 
 </div>
 </div>
@@ -17138,11 +17264,11 @@ For hit trials, we expect the licks to be stimulus-locked, with a response after
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">'trials_id'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">trials</span><span class="p">[</span><span class="s1">'start_time'</span><span class="p">],</span>
-                                                      <span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">'start_time'</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">&#39;trials_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">trials</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">],</span>
+                                                      <span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
 <span class="c1"># Note that searchsorted gives the trial index that has a start_time *after* each stimulus presentation.</span>
 <span class="c1"># So we subtract one to get the trial that started *before* the stimulus presentation.</span>
 
@@ -17164,7 +17290,7 @@ For hit trials, we expect the licks to be stimulus-locked, with a response after
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
 
 
 
@@ -17520,9 +17646,13 @@ For hit trials, we expect the licks to be stimulus-locked, with a response after
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.3.b:** Next, merge the `stimulus_presentations` table with the `trials` table using the newly created `trials_id` column.
+<p>
+<strong>Prompt 1.3.b:</strong> Next, merge the <code>stimulus_presentations</code> table with the <code>trials</code> table using the newly created <code>trials_id</code> column.
+</p>
 
-While merging, note that both the `stimulus_presentations` table and the `trials` table have some columns of the same name, e.g., `start_time`. To distinguish these columns after merging, use the `suffixes` argument. The default suffixes are `('_x', '_y')`, but it's better to rename them to be more meaningful.
+<p>
+While merging, note that both the <code>stimulus_presentations</code> table and the <code>trials</code> table have some columns of the same name, e.g., <code>start_time</code>. To distinguish these columns after merging, use the <code>suffixes</code> argument. The default suffixes are <code>('_x', '_y')</code>, but it's better to rename them to be more meaningful.
+</p>
 
 </div>
 </div>
@@ -17533,11 +17663,11 @@ While merging, note that both the `stimulus_presentations` table and the `trials
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stim_pres_with_trials</span> <span class="o">=</span> <span class="n">stimulus_presentations</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">trials</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'left'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'trials_id'</span><span class="p">,</span>
-                                                     <span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="s1">'_stim'</span><span class="p">,</span> <span class="s1">'_trial'</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stim_pres_with_trials</span> <span class="o">=</span> <span class="n">stimulus_presentations</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">trials</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;trials_id&#39;</span><span class="p">,</span>
+                                                     <span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;_stim&#39;</span><span class="p">,</span> <span class="s1">&#39;_trial&#39;</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -17554,7 +17684,7 @@ While merging, note that both the `stimulus_presentations` table and the `trials
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.3.c:** Print out the columns of the merged table to check that everything is there.
+<strong>Prompt 1.3.c:</strong> Print out the columns of the merged table to check that everything is there.
 
 </div>
 </div>
@@ -17565,7 +17695,7 @@ While merging, note that both the `stimulus_presentations` table and the `trials
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">stim_pres_with_trials</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
@@ -17611,7 +17741,7 @@ While merging, note that both the `stimulus_presentations` table and the `trials
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
 
 
 
@@ -17943,7 +18073,7 @@ While merging, note that both the `stimulus_presentations` table and the `trials
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.3.d:** Now that we have all the info we need, subselect the hit, false alarm and aborted trials.
+<strong>Prompt 1.3.d:</strong> Now that we have all the info we need, subselect the hit, false alarm and aborted trials.
 
 </div>
 </div>
@@ -17954,10 +18084,10 @@ While merging, note that both the `stimulus_presentations` table and the `trials
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stim_pres_hit_fa_aborted</span> <span class="o">=</span> <span class="n">stim_pres_with_trials</span><span class="p">[</span><span class="n">stim_pres_with_trials</span><span class="p">[</span><span class="s1">'trial_type'</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">'hit'</span><span class="p">,</span> <span class="s1">'false_alarm'</span><span class="p">,</span> <span class="s1">'aborted'</span><span class="p">])]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stim_pres_hit_fa_aborted</span> <span class="o">=</span> <span class="n">stim_pres_with_trials</span><span class="p">[</span><span class="n">stim_pres_with_trials</span><span class="p">[</span><span class="s1">&#39;trial_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;hit&#39;</span><span class="p">,</span> <span class="s1">&#39;false_alarm&#39;</span><span class="p">,</span> <span class="s1">&#39;aborted&#39;</span><span class="p">])]</span>
 </pre></div>
 
      </div>
@@ -17974,7 +18104,7 @@ While merging, note that both the `stimulus_presentations` table and the `trials
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.3.e:** Next, select the stimulus presentations that precede the first lick timestamp, and create a copy of the returned data frame. We need to call `.copy()` after selecting to prevent the `SettingWithCopy` warning later.
+<strong>Prompt 1.3.e:</strong> Next, select the stimulus presentations that precede the first lick timestamp, and create a copy of the returned data frame. We need to call <code>.copy()</code> after selecting to prevent the <code>SettingWithCopy</code> warning later.
 
 </div>
 </div>
@@ -17985,11 +18115,11 @@ While merging, note that both the `stimulus_presentations` table and the `trials
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stim_pres_prec_first_lick</span> <span class="o">=</span> <span class="n">stim_pres_hit_fa_aborted</span><span class="p">[</span><span class="n">stim_pres_hit_fa_aborted</span><span class="p">[</span><span class="s1">'start_time_stim'</span><span class="p">]</span>
-                                                     <span class="o">&lt;</span> <span class="n">stim_pres_hit_fa_aborted</span><span class="p">[</span><span class="s1">'first_lick_time'</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stim_pres_prec_first_lick</span> <span class="o">=</span> <span class="n">stim_pres_hit_fa_aborted</span><span class="p">[</span><span class="n">stim_pres_hit_fa_aborted</span><span class="p">[</span><span class="s1">&#39;start_time_stim&#39;</span><span class="p">]</span>
+                                                     <span class="o">&lt;</span> <span class="n">stim_pres_hit_fa_aborted</span><span class="p">[</span><span class="s1">&#39;first_lick_time&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="n">stim_pres_prec_first_lick</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -18009,7 +18139,7 @@ While merging, note that both the `stimulus_presentations` table and the `trials
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
 
 
 
@@ -18197,9 +18327,13 @@ While merging, note that both the `stimulus_presentations` table and the `trials
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
+<p>
 To find the stimulus presentation *just* before the first lick timestamp, we can group the data frame (of all stimulus presentations preceding the first lick timestamp) by trial index and select the stimulus presentation with the largest stimulus presentation index.
+</p>
 
-**Prompt 1.3.f:** First, create a new column called `stim_id` to contain the stimulus presentation index (move the index to a column using `reset_index`).
+<p>
+<strong>Prompt 1.3.f:</strong> First, create a new column called <code>stim_id</code> to contain the stimulus presentation index (move the index to a column using <code>reset_index</code>).
+</p>
 
 </div>
 </div>
@@ -18210,10 +18344,10 @@ To find the stimulus presentation *just* before the first lick timestamp, we can
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp_df</span> <span class="o">=</span> <span class="n">stim_pres_prec_first_lick</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'index'</span><span class="p">:</span> <span class="s1">'stim_id'</span><span class="p">})</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp_df</span> <span class="o">=</span> <span class="n">stim_pres_prec_first_lick</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="s1">&#39;stim_id&#39;</span><span class="p">})</span>
 </pre></div>
 
      </div>
@@ -18230,9 +18364,13 @@ To find the stimulus presentation *just* before the first lick timestamp, we can
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.3.g:** Then, group rows by `trials_id`, and find the maximum `stim_id` in each trial.
+<p>
+<strong>Prompt 1.3.g:</strong> Then, group rows by <code>trials_id</code>, and find the maximum <code>stim_id</code> in each trial.
+</p>
 
-The resulting data frame will associate every trial with a `stim_id`, which is the last stimulus presentation preceding the first lick in that trial.
+<p>
+The resulting data frame will associate every trial with a <code>stim_id</code>, which is the last stimulus presentation preceding the first lick in that trial.
+</p>
 
 </div>
 </div>
@@ -18243,10 +18381,10 @@ The resulting data frame will associate every trial with a `stim_id`, which is t
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">last_stim_id_in_each_trial</span> <span class="o">=</span> <span class="n">temp_df</span><span class="p">[[</span><span class="s1">'stim_id'</span><span class="p">,</span> <span class="s1">'trials_id'</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'trials_id'</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">'max'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">last_stim_id_in_each_trial</span> <span class="o">=</span> <span class="n">temp_df</span><span class="p">[[</span><span class="s1">&#39;stim_id&#39;</span><span class="p">,</span> <span class="s1">&#39;trials_id&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;trials_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">&#39;max&#39;</span><span class="p">)</span>
 <span class="n">last_stim_id_in_each_trial</span>
 </pre></div>
 
@@ -18265,7 +18403,7 @@ The resulting data frame will associate every trial with a `stim_id`, which is t
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
 
 
 
@@ -18361,7 +18499,7 @@ The resulting data frame will associate every trial with a `stim_id`, which is t
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.3.h:** Now, choose those rows from the merged `stimulus_presentation`-`trials` table that have these `stim_id`s.
+<strong>Prompt 1.3.h:</strong> Now, choose those rows from the merged <code>stimulus_presentations</code>-<code>trials</code> table that have these <code>stim_id</code>s.
 
 </div>
 </div>
@@ -18372,10 +18510,10 @@ The resulting data frame will associate every trial with a `stim_id`, which is t
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stim_pres_prec_first_lick</span> <span class="o">=</span> <span class="n">stim_pres_prec_first_lick</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">last_stim_id_in_each_trial</span><span class="p">[</span><span class="s1">'stim_id'</span><span class="p">]]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stim_pres_prec_first_lick</span> <span class="o">=</span> <span class="n">stim_pres_prec_first_lick</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">last_stim_id_in_each_trial</span><span class="p">[</span><span class="s1">&#39;stim_id&#39;</span><span class="p">]]</span>
 </pre></div>
 
      </div>
@@ -18392,7 +18530,7 @@ The resulting data frame will associate every trial with a `stim_id`, which is t
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.3.i:** Finally, compute the latency between the first lick in each trial and the start of the preceding stimulus flash. Add this to a new column.
+<strong>Prompt 1.3.i:</strong> Finally, compute the latency between the first lick in each trial and the start of the preceding stimulus flash. Add this to a new column.
 
 </div>
 </div>
@@ -18403,11 +18541,11 @@ The resulting data frame will associate every trial with a `stim_id`, which is t
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stim_pres_prec_first_lick</span><span class="p">[</span><span class="s1">'lick_latency'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">stim_pres_prec_first_lick</span><span class="p">[</span><span class="s1">'first_lick_time'</span><span class="p">]</span>
-                                             <span class="o">-</span> <span class="n">stim_pres_prec_first_lick</span><span class="p">[</span><span class="s1">'start_time_stim'</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stim_pres_prec_first_lick</span><span class="p">[</span><span class="s1">&#39;lick_latency&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">stim_pres_prec_first_lick</span><span class="p">[</span><span class="s1">&#39;first_lick_time&#39;</span><span class="p">]</span>
+                                             <span class="o">-</span> <span class="n">stim_pres_prec_first_lick</span><span class="p">[</span><span class="s1">&#39;start_time_stim&#39;</span><span class="p">])</span>
 <span class="n">stim_pres_prec_first_lick</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -18426,7 +18564,7 @@ The resulting data frame will associate every trial with a `stim_id`, which is t
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[32]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
 
 
 
@@ -18614,7 +18752,7 @@ The resulting data frame will associate every trial with a `stim_id`, which is t
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.3.j:** Plot a histogram of lick latencies, colored by trial type.
+<strong>Prompt 1.3.j:</strong> Plot a histogram of lick latencies, colored by trial type.
 
 </div>
 </div>
@@ -18625,21 +18763,17 @@ The resulting data frame will associate every trial with a `stim_id`, which is t
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Using matplotlib</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">trial_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'aborted'</span><span class="p">,</span> <span class="s1">'hit'</span><span class="p">,</span> <span class="s1">'false_alarm'</span><span class="p">]:</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">stim_pres_prec_first_lick</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">stim_pres_prec_first_lick</span><span class="p">[</span><span class="n">trial_type</span><span class="p">],</span> <span class="s1">'lick_latency'</span><span class="p">],</span>
-             <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">'w'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">trial_type</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time from stimulus flash to first lick'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Number of occurrences'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">trial_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;aborted&#39;</span><span class="p">,</span> <span class="s1">&#39;hit&#39;</span><span class="p">,</span> <span class="s1">&#39;false_alarm&#39;</span><span class="p">]:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">stim_pres_prec_first_lick</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">stim_pres_prec_first_lick</span><span class="p">[</span><span class="n">trial_type</span><span class="p">],</span> <span class="s1">&#39;lick_latency&#39;</span><span class="p">],</span>
+             <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">trial_type</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time from stimulus flash to first lick&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of occurrences&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-
-<span class="c1"># Using seaborn</span>
-<span class="c1">#plt.figure()</span>
-<span class="c1">#sns.histplot(stim_pres_prec_first_lick, x='lick_latency', hue='trial_type', bins=np.linspace(0, 0.75, 16))</span>
 </pre></div>
 
      </div>
@@ -18657,13 +18791,13 @@ The resulting data frame will associate every trial with a `stim_id`, which is t
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[32]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.legend.Legend at 0x7f1f728828e0&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x7f6a80b45730&gt;</pre>
 </div>
 
 </div>
@@ -18691,6 +18825,69 @@ jp-needs-light-background
 
 </div>
 
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Using seaborn</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">stim_pres_prec_first_lick</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;lick_latency&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;trial_type&#39;</span><span class="p">,</span>
+             <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&lt;AxesSubplot:xlabel=&#39;lick_latency&#39;, ylabel=&#39;Count&#39;&gt;</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,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
+"
+class="
+jp-needs-light-background
+"
+>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -18700,11 +18897,13 @@ jp-needs-light-background
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-Since both hit trials and aborted trials appear to be stimulus-locked, it would appear that this mouse is using a timing strategy.
-
-> **Note:** We could have gone about Exercise 1.3 in many other ways too. The reason we chose this method was to practise using `merge` and `groupby`. For instance, here are some other possible algorithms:
-> 1. We could have used `searchsorted` to directly find the stimulus presentations preceding the first lick in each trial.
-> 2. Or, we could have computed the `lick_latency` column after 1.3.d, and then selected the rows with smallest positive lick latencies, which would have avoided the `groupby`.
+<blockquote>
+<strong>Note:</strong> We could have gone about Exercise 1.3 in many other ways too. The reason we chose this method was to practise using <code>merge</code> and <code>groupby</code>. For instance, here are some other possible algorithms:
+<ol>
+<li>We could have used <code>searchsorted</code> to directly find the stimulus presentations preceding the first lick in each trial.</li>
+<li>Or, we could have computed the <code>lick_latency</code> column after 1.3.d, and then selected the rows with smallest positive lick latencies, which would have avoided the <code>groupby</code>.</li>
+</ol>
+</blockquote>
 
 </div>
 </div>
@@ -18719,13 +18918,19 @@ Since both hit trials and aborted trials appear to be stimulus-locked, it would 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-### 1.4  Computing lick bouts
+<h3>1.4  Computing lick bouts</h3>
 
+<p>
 Mice tend to lick quickly in rapid succession. In this exercise, we'll examine how to separate these licks into lick "bouts".
+</p>
 
-We'll compute the inter-lick interval from the `licks` table, and use a histogram of these intervals to find a suitable lick bout "threshold". This will be a cut-off time interval (>100ms and &lt;1 second) within which two licks will be considered part of a bout.
+<p>    
+We'll compute the inter-lick interval from the <code>licks</code> table, and use a histogram of these intervals to find a suitable lick bout "threshold". This will be a cut-off time interval (&gt;100ms and &lt;1 second) within which two licks will be considered part of a bout.
+</p>
 
+<p>
 Then, we'll add a column to the licks table to indicate the lick bout number that each lick is part of. Finally, we'll plot a histogram of inter-bout intervals.
+</p>
 
 </div>
 </div>
@@ -18740,7 +18945,7 @@ Then, we'll add a column to the licks table to indicate the lick bout number tha
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.4.a:** Compute the inter-lick interval from the `licks` table. You can use the `np.diff` function from numpy to compute differences of adjacent elements.
+<strong>Prompt 1.4.a:</strong> Compute the inter-lick interval from the <code>licks</code> table. You can use the <code>np.diff</code> function from numpy to compute differences of adjacent elements.
 
 </div>
 </div>
@@ -18754,7 +18959,7 @@ Then, we'll add a column to the licks table to indicate the lick bout number tha
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ili</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">licks</span><span class="p">[</span><span class="s1">'timestamps'</span><span class="p">])</span>  <span class="c1"># Inter-lick interval</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ili</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">licks</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">])</span>  <span class="c1"># Inter-lick interval</span>
 </pre></div>
 
      </div>
@@ -18771,7 +18976,7 @@ Then, we'll add a column to the licks table to indicate the lick bout number tha
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.4.b:** Plot a histogram of the inter-lick interval to find a reasonable threshold for lick bouts (use 1000 bins and log scaling on the y-axis to better evaluate where the lick bout cuts off).
+<strong>Prompt 1.4.b:</strong> Plot a histogram of the inter-lick interval to find a reasonable threshold for lick bouts (use 1000 bins and log scaling on the y-axis to better evaluate where the lick bout cuts off).
 
 </div>
 </div>
@@ -18788,7 +18993,7 @@ Then, we'll add a column to the licks table to indicate the lick bout number tha
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">h</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ili</span><span class="p">[</span><span class="n">ili</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">'log'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -18835,7 +19040,7 @@ jp-needs-light-background
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.4.c:** Set the lick bout threshold based on where the histogram clips off (roughly)
+<strong>Prompt 1.4.c:</strong> Set the lick bout threshold based on where the histogram clips off (roughly)
 
 </div>
 </div>
@@ -18866,7 +19071,7 @@ jp-needs-light-background
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.4.d:** (This step is not needed for what follows) Add the inter-lick intervals to the `licks` table. There is now one row fewer than needed, since the inter-lick interval is not defined for the very first lick: make that row either `inf` or `NaN`.
+<strong>Prompt 1.4.d:</strong> (This step is not needed for what follows) Add the inter-lick intervals to the <code>licks</code> table. There is now one row fewer than needed, since the inter-lick interval is not defined for the very first lick: make that row either <code>inf</code> or <code>NaN</code>.
 
 </div>
 </div>
@@ -18880,7 +19085,7 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">licks</span><span class="p">[</span><span class="s1">'time_from_last_lick'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">],</span> <span class="n">ili</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">licks</span><span class="p">[</span><span class="s1">&#39;time_from_last_lick&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">],</span> <span class="n">ili</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -18897,7 +19102,7 @@ jp-needs-light-background
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.4.e:** Create a `lick_bout` column in the `licks` table, to contain the "bout index" that each lick is part of: to compute the bout index, we need to increment a counter every time the inter-lick interval exceeds the lick bout threshold that we defined above. `np.cumsum` computes a cumulative sum, and can be used do this efficiently.
+<strong>Prompt 1.4.e:</strong> Create a <code>lick_bout</code> column in the <code>licks</code> table, to contain the "bout index" that each lick is part of: to compute the bout index, we need to increment a counter every time the inter-lick interval exceeds the lick bout threshold that we defined above. <code>np.cumsum</code> computes a cumulative sum, and can be used do this efficiently.
 
 </div>
 </div>
@@ -18911,8 +19116,8 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">licks</span><span class="p">[</span><span class="s1">'lick_bout'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">licks</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="s1">'lick_bout'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">((</span><span class="n">ili</span> <span class="o">&gt;</span> <span class="n">lick_bout_threshold</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">licks</span><span class="p">[</span><span class="s1">&#39;lick_bout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">licks</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="s1">&#39;lick_bout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">((</span><span class="n">ili</span> <span class="o">&gt;</span> <span class="n">lick_bout_threshold</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
 <span class="c1"># In the above, we can use loc, because the licks table uses the standard, sequential index starting from zero.</span>
 <span class="n">licks</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -19017,7 +19222,7 @@ jp-needs-light-background
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.4.f:** Create a table with the timestamps of lick bouts, i.e., timestamps of the first lick in each bout. You could use a `groupby` to do this.
+<strong>Prompt 1.4.f:</strong> Create a table with the timestamps of lick bouts, i.e., timestamps of the first lick in each bout. You could use a <code>groupby</code> to do this.
 
 </div>
 </div>
@@ -19031,8 +19236,8 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lick_bouts</span> <span class="o">=</span> <span class="n">licks</span><span class="p">[[</span><span class="s1">'timestamps'</span><span class="p">,</span> <span class="s1">'lick_bout'</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'lick_bout'</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">'min'</span><span class="p">)</span>
-<span class="n">inter_bout_interval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">lick_bouts</span><span class="p">[</span><span class="s1">'timestamps'</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lick_bouts</span> <span class="o">=</span> <span class="n">licks</span><span class="p">[[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">,</span> <span class="s1">&#39;lick_bout&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;lick_bout&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">&#39;min&#39;</span><span class="p">)</span>
+<span class="n">inter_bout_interval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">lick_bouts</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">])</span>
 </pre></div>
 
      </div>
@@ -19049,7 +19254,7 @@ jp-needs-light-background
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-success">
 
-**Prompt 1.4.g:** Check what the histogram of inter-bout intervals looks like (leaving out intervals >=1 minute in length)
+<strong>Prompt 1.4.g:</strong> Check what the histogram of inter-bout intervals looks like (leaving out intervals &gt;=1 minute in length)
 
 </div>
 </div>
