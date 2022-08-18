@@ -21,4 +21,4 @@ dependencies:
       - meshparty==1.16.5
       - git+https://github.com/AllenInstitute/em_coregistration.git@swdb
       - git+https://github.com/cajal/microns_phase3_nda.git
-      - git+https://github.com/AllenInstitute/brain_observatory_utilities.git@master
+      - git+https://github.com/AllenInstitute/brain_observatory_utilities.git@v0.1.0
