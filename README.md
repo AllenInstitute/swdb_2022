@@ -12,8 +12,13 @@ If you are using the repo on the harddrive on windows type
 ```
 cd 
 ```
+if on a mac open terminal and type
 
- and run
+```
+cd /Volumes/Brain2022
+```
+
+ and on any platform run
 
 ```
 conda env create --name swdb2022 --file=environment.yml
