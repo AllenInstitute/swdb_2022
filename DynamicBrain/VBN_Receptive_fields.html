@@ -14594,7 +14594,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-## Receptive Field Analysis
+<h2> Receptive Field Analysis </h2>
 
 This notebook will demonstrate how to get receptive field information for the units in the Visual Behavior Neuropixels dataset. In the visual system, a neuron's receptive field is the region of visual space where a stimulus will drive spiking activity. Because this is a fundamental property of visual neurons, we have included a tool to help characterize the receptive fields of neurons in this dataset. 
 
@@ -14729,8 +14729,7 @@ This notebook will demonstrate how to get receptive field information for the un
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[261]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Let's grab data from our example session</span>
-<span class="n">session_id</span> <span class="o">=</span> <span class="mi">1053941483</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">session_id</span> <span class="o">=</span> <span class="mi">1053941483</span>
 <span class="n">session</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_ecephys_session</span><span class="p">(</span>
             <span class="n">ecephys_session_id</span><span class="o">=</span><span class="n">session_id</span><span class="p">)</span>
 </pre></div>
@@ -14749,9 +14748,9 @@ This notebook will demonstrate how to get receptive field information for the un
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-## How do we define a receptive field for this dataset?
+<h2> How do we define a receptive field for this dataset? </h2>
 
-To characterize receptive fields, we presented gabor stimuli in a 9x9 grid as depicted below. Further analysis followed the convention described for the [Visual Coding Neuropixels paper](https://www.nature.com/articles/s41586-020-03171-x/figures/10), which used the same stimulus (with minor differences in the temporal and spatial frequency of the gabors). This workflow is diagrammed below. See also the [Visual Coding receptive field tutorial](https://allensdk.readthedocs.io/en/latest/_static/examples/nb/ecephys_receptive_fields.html) for more info about the stimulus.
+To characterize receptive fields, we presented gabor stimuli in a 9x9 grid as depicted below. Further analysis followed the convention described for the <a href="https://www.nature.com/articles/s41586-020-03171-x/figures/10">Visual Coding Neuropixels paper</a>, which used the same stimulus (with minor differences in the temporal and spatial frequency of the gabors). This workflow is diagrammed below. See also the <a href="https://allensdk.readthedocs.io/en/latest/_static/examples/nb/ecephys_receptive_fields.html">Visual Coding receptive field tutorial</a> for more info about the stimulus.
 
 </div>
 </div>
@@ -14764,7 +14763,7 @@ To characterize receptive fields, we presented gabor stimuli in a 9x9 grid as de
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><img src="../resources/rf_explanation.png"/></p>
+<p><img src="../resources/rf_explanation.PNG"/></p>
 
 </div>
 </div>
@@ -14792,7 +14791,7 @@ We've made a convenience class to handle calculating the RFs for each unit, as w
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[262]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">receptive_field_mapping</span> <span class="k">as</span> <span class="nn">rfm</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">brain_observatory_utilities.datasets.electrophysiology.receptive_field_mapping</span> <span class="kn">import</span> <span class="n">ReceptiveFieldMapping_VBN</span>
 </pre></div>
 
      </div>
@@ -14809,7 +14808,7 @@ We've made a convenience class to handle calculating the RFs for each unit, as w
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-You can filter which units you'd like to calculate rf metrics for by using the `filter` argument.
+You can filter which units you'd like to calculate rf metrics for by using the <code>filter</code> argument.
 
 </div>
 </div>
@@ -14824,7 +14823,7 @@ You can filter which units you'd like to calculate rf metrics for by using the `
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#grab rf info for specific units by passing a list of unit_ids</span>
-<span class="n">rf</span> <span class="o">=</span> <span class="n">rfm</span><span class="o">.</span><span class="n">ReceptiveFieldMapping_VBN</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="p">[</span><span class="mi">1061854534</span><span class="p">,])</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">ReceptiveFieldMapping_VBN</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="p">[</span><span class="mi">1061854534</span><span class="p">,])</span>
 </pre></div>
 
      </div>
@@ -14841,7 +14840,7 @@ You can filter which units you'd like to calculate rf metrics for by using the `
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#you can also pass in a dictionary. We can replicate the cell above using the 'unit_id' key:</span>
-<span class="n">rf</span> <span class="o">=</span> <span class="n">rfm</span><span class="o">.</span><span class="n">ReceptiveFieldMapping_VBN</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="p">{</span><span class="s1">'unit_id'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1061854534</span><span class="p">,]})</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">ReceptiveFieldMapping_VBN</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="p">{</span><span class="s1">'unit_id'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1061854534</span><span class="p">,]})</span>
 </pre></div>
 
      </div>
@@ -14859,7 +14858,7 @@ You can filter which units you'd like to calculate rf metrics for by using the `
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#you can also filter by brain area (structure_acronym), or any column in the session.get_units() dataframe</span>
 <span class="c1">#the following will return rf info for 'good' units in VISp</span>
-<span class="n">rf</span> <span class="o">=</span> <span class="n">rfm</span><span class="o">.</span><span class="n">ReceptiveFieldMapping_VBN</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="p">{</span><span class="s1">'structure_acronym'</span><span class="p">:</span> <span class="s1">'VISp'</span><span class="p">,</span> <span class="s1">'quality'</span><span class="p">:</span><span class="s1">'good'</span><span class="p">})</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">ReceptiveFieldMapping_VBN</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="p">{</span><span class="s1">'structure_acronym'</span><span class="p">:</span> <span class="s1">'VISp'</span><span class="p">,</span> <span class="s1">'quality'</span><span class="p">:</span><span class="s1">'good'</span><span class="p">})</span>
 </pre></div>
 
      </div>
@@ -15026,24 +15025,25 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 
 Let's look at what each of these columns means:
 
-**The following metrics are based on a thresholded receptive field**: to get the thresholded rf, the following steps are taken:  
-    &ensp;1) the raw receptive field (rf) is calculated by summing the spikes evoked by each spatial position of the gabor stimulus. This yields a 9X9 matrix of spike counts.    
-    &ensp;2) the raw rf is filtered with a gaussian (sigma of 10 degrees or one pixel) to produce rf_smooth  
-    &ensp;3) a threshold is determined as max(rf_smooth) - standard_deviation(rf_smooth)*0.5  
-    &ensp;4) rf_smooth is binarized by setting values below threshold to False and above to True, producing rf_thresh  
-    &ensp;5) rf_thresh is labeled (scipy.ndimage.label) and the label over which rf_smooth is maximized is found. Pixels associated with this label are set to 1, and all other labeled regions are set to 0. This step produces the final rf_thresh used for analysis.  
+<b>The following metrics are based on a thresholded receptive field</b>: to get the thresholded rf, the following steps are taken:
+<ol>
+    <li> the raw receptive field (rf) is calculated by summing the spikes evoked by each spatial position of the gabor stimulus. This yields a 9X9 matrix of spike counts. </li>
+    <li> the raw rf is filtered with a gaussian (sigma of 10 degrees or one pixel) to produce rf_smooth </li> 
+    <li> a threshold is determined as max(rf_smooth) - standard_deviation(rf_smooth)*0.5 </li> 
+    <li> rf_smooth is binarized by setting values below threshold to False and above to True, producing rf_thresh </li> 
+    <li> rf_thresh is labeled (scipy.ndimage.label) and the label over which rf_smooth is maximized is found. Pixels associated with this label are set to 1, and all other labeled regions are set to 0. This step produces the final rf_thresh used for analysis. </li> 
+</ol>   
+<p><code>azimuth_rf</code>: The location of the center of mass of rf_thresh in azimuth. Units are degrees.  
+<p><code>elevation_rf</code>: The location of the center of mass of rf_thresh in elevation. Units are degrees.  
+<p><code>area_rf</code>: The count of non-zero elements in rf_thresh multiplied by 100 degrees<sup>2</sup>. Units are degrees<sup>2</sup>.  
 
-`azimuth_rf`: The location of the center of mass of rf_thresh in azimuth. Units are degrees.  
-`elevation_rf`: The location of the center of mass of rf_thresh in elevation. Units are degrees.  
-`area_rf`: The count of non-zero elements in rf_thresh multiplied by 100 degrees<sup>2</sup>. Units are degrees<sup>2</sup>.  
+<p><b>The following metrics are based on a 2D gaussian fit to the raw rf:</b>  
+<p><code>width_rf</code> : the sigma of the 2D gaussian fit in the azimuth dimension in degrees  
+<p><code>height_rf</code>: the sigma of the 2D gaussian fit in the elevation dimension in degrees  
+<p><code>on_screen_rf</code>: True if the center of the 2D gaussian fit fell within the region of visual space spanned by the gabor stimuli. False if the center of the 2D gaussian fell outside this region.  
+<p><code>is_inverted</code>:  True if the peak of the gaussian fit is negative, indicating a neuron that is suppressed by visual contrast. For these neurons, the rf is inverted and metrics are recalculated. 
 
-**The following metrics are based on a 2D gaussian fit to the raw rf:**  
-`width_rf` : the sigma of the 2D gaussian fit in the azimuth dimension in degrees  
-`height_rf`: the sigma of the 2D gaussian fit in the elevation dimension in degrees  
-`on_screen_rf`: True if the center of the 2D gaussian fit fell within the region of visual space spanned by the gabor stimuli. False if the center of the 2D gaussian fell outside this region.  
-`is_inverted`:  True if the peak of the gaussian fit is negative, indicating a neuron that is suppressed by visual contrast. For these neurons, the rf is inverted and metrics are recalculated. 
-
-The `p_value` was calculated by a chi-square test as described [here](https://www.nature.com/articles/s41586-020-03171-x?WT.ec_id=NATURE-202101&sap-outbound-id=4E195E023D51C73B5BD9070E527199209B14C6B0#Sec5)  
+<p>The `p_value` was calculated by a chi-square test as described <a href="https://www.nature.com/articles/s41586-020-03171-x?WT.ec_id=NATURE-202101&sap-outbound-id=4E195E023D51C73B5BD9070E527199209B14C6B0#Sec5">here</a>  
 
 </div>
 </div>
@@ -15273,7 +15273,7 @@ Now we can merge our receptive field stats into the units dataframe. This will m
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-For example, we could use this new dataframe to get a list of units with a `good` quality label and a significant rf p value:
+For example, we could use this new dataframe to get a list of units with a <code>good</code> quality label and a significant rf p value:
 
 </div>
 </div>

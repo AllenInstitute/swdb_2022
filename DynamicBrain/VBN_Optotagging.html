@@ -14596,18 +14596,18 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <p>This notebook will introduce you to optotagging in the Visual Behavior Neuropixels dataset and associated AllenSDK functions. 
 
 
-### Why optotagging?
+<h3> Why optotagging? </h3>
+<ul>    
+<li>In extracellular electrophysiology, we have very little information about cell types, beyond simple metrics like waveform duration</li>
 
-* In extracellular electrophysiology, we have very little information about cell types, beyond simple metrics like waveform duration
+<li>One way to record from genetically-identified cell types is to express channelrhodopsin with a transgenic mouse, then shine light on the brain during a recording</li>
 
-* One way to record from genetically-identified cell types is to express channelrhodopsin with a transgenic mouse, then shine light on the brain during a recording
+<li>The units that are activated strongly by the light likely express channelrhodopsin, and therefore belong to the genetically defined cell type of interest</li>
 
-* The units that are activated strongly by the light likely express channelrhodopsin, and therefore belong to the genetically defined cell type of interest
+<li>However, there is not one generally accepted method for defining whether a cell has been optotagged. The strength of response to light is determined by many factors, including light power, location/spread of illumination, depth in the brain, level of channelrhodopsin expression, and more.</li>
 
-* However, there is not one generally accepted method for defining whether a cell has been optotagged. The strength of response to light is determined by many factors, including light power, location/spread of illumination, depth in the brain, level of channelrhodopsin expression, and more.
-
-* Below we will show one example method of defining which cells are optotagged
-
+<li>Below we will show one example method of defining which cells are optotagged</li>
+</ul>
 </div>
 </div>
 </div>
@@ -14642,7 +14642,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-## Access the dataset
+<h2> Access the dataset </h2>
 
 </div>
 </div>
@@ -14730,13 +14730,13 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-## Filtering the sessions table for a session of interest
+<h2> Filtering the sessions table for a session of interest </h2>
 
 <p>Let's grab a session that fulfills these criteria:
-
-- `Novel` images presented
-- `Sst-IRES-Cre` mouse
-
+<ul>
+    <li><code>Novel</code> images presented</li>
+    <li><code>Sst-IRES-Cre</code> mouse</li>
+</ul>
 </div>
 </div>
 </div>
@@ -15025,9 +15025,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-## Load units, channels, and spike_times
+<h2> Load units, channels, and spike_times</h2>
 
-Now, let's load the units, channels, and spike_times, and merge the units and channels tables as in the first tutorial
+<p>Now, let's load the units, channels, and spike_times, and merge the units and channels tables as in the first tutorial
 
 </div>
 </div>
@@ -15163,8 +15163,8 @@ We will use the <code>makePSTH</code> and <code>make_neuron_time_trials_tensor</
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-## 1: Using Optotagging to Identify SST Neurons
-Since this is an SST mouse, we should see putative SST+ interneurons that are activated during our optotagging protocol. Let's load the optotagging stimulus table and plot PSTHs triggered on the laser onset. For more examples and useful info about optotagging, you can check out the Visual Coding Neuropixels Optotagging notebook [here](https://allensdk.readthedocs.io/en/latest/visual_coding_neuropixels.html) (though note that not all the functionality in the visual coding SDK will work for this dataset).
+<h2> 1: Using Optotagging to Identify SST Neurons </h2>
+<p>Since this is an SST mouse, we should see putative SST+ interneurons that are activated during our optotagging protocol. Let's load the optotagging stimulus table and plot PSTHs triggered on the laser onset. For more examples and useful info about optotagging, you can check out the Visual Coding Neuropixels Optotagging notebook <a href="https://allensdk.readthedocs.io/en/latest/visual_coding_neuropixels.html">here</a> (though note that not all the functionality in the visual coding SDK will work for this dataset).
 
 </div>
 </div>
@@ -15331,7 +15331,7 @@ If you check out the above table and diagram, you'll see that we use 2 different
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-**1.1: Filter and sort units**
+<b>1.1: Filter and sort units</b>
 
 </div>
 </div>
@@ -15372,7 +15372,7 @@ If you check out the above table and diagram, you'll see that we use 2 different
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-**1.2: Make a 3D neuron-time-trials array from optotagging epoch**
+<b>1.2: Make a 3D neuron-time-trials array from optotagging epoch</b>
 
 </div>
 </div>
@@ -15408,7 +15408,7 @@ If you check out the above table and diagram, you'll see that we use 2 different
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-**1.3: Select and average over the high intensity 10ms stimulation trials**
+<b>1.3: Select and average over the high intensity 10ms stimulation trials</b>
 
 </div>
 </div>
@@ -15447,7 +15447,7 @@ If you check out the above table and diagram, you'll see that we use 2 different
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-**1.4: Plot neural responses to optotagging stimulus**
+<b>1.4: Plot neural responses to optotagging stimulus</b>
 
 </div>
 </div>
@@ -15547,7 +15547,7 @@ jp-needs-light-background
 
 Here we can see that most units don't respond to the short laser pulse. But there is a population of ~20 units that do show elevated firing rates. Note that the activity occurring at the onset and offset of the laser (along the dotted lines) is likely artifactual and should be excluded from analysis.
 
-There are multiple ways to define which units are optotagged and therefore Cre-positive. We will just show one set of optotagging criteria. You can even try to define your own criteria!
+<p>There are multiple ways to define which units are optotagged and therefore Cre-positive. We will just show one set of optotagging criteria. You can even try to define your own criteria!
 
 </div>
 </div>
@@ -15562,19 +15562,19 @@ There are multiple ways to define which units are optotagged and therefore Cre-p
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-### 2: Defining neurons as "Optotagged" 
+<h3> 2: Defining neurons as "Optotagged" </h3>
 
-Guidelines:
+<p>Guidelines:
 
-There are a variety of ways to define optotagged cells, but these are the most important things to keep in mind:
+<p>There are a variety of ways to define optotagged cells, but these are the most important things to keep in mind:
+<ul>
+<li>Spikes that occur precisely at the start or end of a light pulse are likely artifactual, and need to be ignored.</li>
+<li>The bright blue light required for optotagging can be seen by the mouse, so any spikes that occur more than 40 ms after the stimulus onset may result from retinal input, as opposed to direct optogenetic drive.</li>
+<li>The rate of false negatives (Cre+ cells that are not light-driven) will vary across areas, across depths, and across sessions. We've tried our best to evenly illuminate the entire visual cortex, and to use light powers that can drive spikes throughout all cortical layers, but some variation is inevitable.</li>
+</ul>
+<p>For these reasons, we've found that the 10 ms pulses are the most useful stimulus for finding true light-evoked activity. These pulses provide a long enough artifact-free window to observe light-evoked spikes, but do not last long enough to be contaminated by visually driven activity.
 
-- Spikes that occur precisely at the start or end of a light pulse are likely artifactual, and need to be ignored.
-- The bright blue light required for optotagging can be seen by the mouse, so any spikes that occur more than 40 ms after the stimulus onset may result from retinal input, as opposed to direct optogenetic drive.
-- The rate of false negatives (Cre+ cells that are not light-driven) will vary across areas, across depths, and across sessions. We've tried our best to evenly illuminate the entire visual cortex, and to use light powers that can drive spikes throughout all cortical layers, but some variation is inevitable.
-
-For these reasons, we've found that the 10 ms pulses are the most useful stimulus for finding true light-evoked activity. These pulses provide a long enough artifact-free window to observe light-evoked spikes, but do not last long enough to be contaminated by visually driven activity.
-
-Using the 3D array we created previously, we can search for units that increase their firing rate during the 10 ms pulse:
+<p>Using the 3D array we created previously, we can search for units that increase their firing rate during the 10 ms pulse:
 
 </div>
 </div>
@@ -15589,7 +15589,7 @@ Using the 3D array we created previously, we can search for units that increase 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-**2.1: Compute neurons' baseline (-10 to -2 ms) and evoked (1 to 9 ms) firing rates**
+<b>2.1: Compute neurons' baseline (-10 to -2 ms) and evoked (1 to 9 ms) firing rates</b>
 
 </div>
 </div>
@@ -15644,9 +15644,9 @@ Using the 3D array we created previously, we can search for units that increase 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-**2.2: Plot evoked rate versus baseline rate as a scatter plot**
+<b>2.2: Plot evoked rate versus baseline rate as a scatter plot</b>
 
-Comparing the baseline and evoked rates, we can see a clear subset of units with a light-evoked increase in firing rate: 
+<p>Comparing the baseline and evoked rates, we can see a clear subset of units with a light-evoked increase in firing rate: 
 
 </div>
 </div>
@@ -15719,9 +15719,9 @@ jp-needs-light-background
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-**2.3: Select a threshold for defining a unit as optotagged**
+<b>2.3: Select a threshold for defining a unit as optotagged</b>
 
-We can select a threshold, such as 5x increase in firing rate (red line), plus an evoked rate of at least 50Hz (blue line), to find the IDs for units that are robustly driven by the light:
+<p>We can select a threshold, such as 5x increase in firing rate (red line), plus an evoked rate of at least 50Hz (blue line), to find the IDs for units that are robustly driven by the light:
 
 </div>
 </div>
@@ -15991,7 +15991,7 @@ Plotting the PSTHs from these putative optotagged units shows that they do appea
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-**2.4: Use the unit index computed above to select the activity of putative Cre-positive units**
+<b>2.4: Use the unit index computed above to select the activity of putative Cre-positive units</b>
 
 </div>
 </div>
@@ -16026,7 +16026,7 @@ Plotting the PSTHs from these putative optotagged units shows that they do appea
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-**2.5: Plot responses of putative Cre-positive units to optotagging stimuli**
+<b>2.5: Plot responses of putative Cre-positive units to optotagging stimuli</b>
 
 </div>
 </div>
@@ -16123,7 +16123,7 @@ All units plotted here should noticeably respond to the laser
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-**2.6: Select Cre-negative units and plot their responses to optotagging stimuli**
+<b>2.6: Select Cre-negative units and plot their responses to optotagging stimuli</b>
 
 </div>
 </div>
@@ -16240,11 +16240,11 @@ jp-needs-light-background
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-## 3: Plotting responses of Optotagged neurons to novel and familiar images
+<h2> 3: Plotting responses of Optotagged neurons to novel and familiar images </h2>
 
-The whole point of optotagging is to classify neurons as a particular type, in this case a genetically defined cell type.
+<p>The whole point of optotagging is to classify neurons as a particular type, in this case a genetically defined cell type.
 
-Now that we have identified putative SST neurons, let's plot their responses to familiar vs. novel images, much like we did in the tutorial. All we need to do is divde units into Cre-positive and Cre-negative and plot them separately.
+<p>Now that we have identified putative SST neurons, let's plot their responses to familiar vs. novel images, much like we did in the tutorial. All we need to do is divde units into Cre-positive and Cre-negative and plot them separately.
 
 </div>
 </div>
@@ -16259,7 +16259,7 @@ Now that we have identified putative SST neurons, let's plot their responses to 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-**3.1: Load the <code>stimulus_presentations</code> table:**
+<b>3.1: Load the <code>stimulus_presentations</code> table:</b>
 
 </div>
 </div>
@@ -16290,7 +16290,7 @@ Now that we have identified putative SST neurons, let's plot their responses to 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-**3.2: Next we need to define which images are novel, which requires the <code>getImageNovelty</code> function again, so we should define it here or import it:**
+<b>3.2: Next we need to define which images are novel, which requires the <code>getImageNovelty</code> function again, so we should define it here or import it:</b>
 
 </div>
 </div>
@@ -16383,7 +16383,7 @@ Now that we have identified putative SST neurons, let's plot their responses to 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-**3.3: apply the <code>getImageNovelty</code> function to the <code>stimulus_presentations</code> table**
+<b>3.3: apply the <code>getImageNovelty</code> function to the <code>stimulus_presentations</code> table</b>
 
 </div>
 </div>
@@ -16440,7 +16440,7 @@ Now that we have identified putative SST neurons, let's plot their responses to 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-**3.4: Make 3D arrays for Cre+ versus Cre- units**
+<b>3.4: Make 3D arrays for Cre+ versus Cre- units</b>
 
 </div>
 </div>
@@ -16483,7 +16483,7 @@ Now that we have identified putative SST neurons, let's plot their responses to 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-**3.5: Plot Cre+ vs. Cre- responses to Familiar changes in one plot, and Novel changes in another**
+<b>3.5: Plot Cre+ vs. Cre- responses to Familiar changes in one plot, and Novel changes in another</b>
 
 </div>
 </div>
