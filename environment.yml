@@ -11,10 +11,10 @@ dependencies:
   - scikit-learn
   - nbgitpuller
   - pykdtree
-  - pyembree
   - scikit-build
   - pip
   - pip:
+      - pyembree
       - allensdk==2.13.6
       - caveclient==4.16.2
       - nglui==2.10.1
