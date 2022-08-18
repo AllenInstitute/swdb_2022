@@ -23,3 +23,7 @@ dependencies:
       - git+https://github.com/AllenInstitute/em_coregistration.git@swdb
       - git+https://github.com/cajal/microns_phase3_nda.git
       - git+https://github.com/AllenInstitute/brain_observatory_utilities.git@v0.1.2
+variables:
+  DJ_HOST: swdb.crjvviai1xxh.us-west-2.rds.amazonaws.com
+  DJ_USER: dbuser
+  DJ_PASS: <fy[B)2z[ksS%eeSOaghO}>_:z}Le&>NnpYz5ObWW
