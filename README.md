@@ -9,7 +9,7 @@ To setup an environment using conda that has all the packages you need to run th
 Then open a terminal or command line prompt on windows. Navigate to this repository directory and run
 
 ```
-conda env create --name swdb2022 --file=environment.yaml
+conda env create --name swdb2022 --file=environment.yml
 ```
 
 
