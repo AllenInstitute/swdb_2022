@@ -18,6 +18,7 @@ dependencies:
   - anaconda::scipy
   - pip
   - pip:
+      - nbdime
       - pyembree
       - allensdk==2.13.6
       - caveclient==4.16.2
