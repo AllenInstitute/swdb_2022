@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title><p>Visual_Behavior_Neuropixels_SWDB_2022_Tutorial_Solutions</p></title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Visual_Behavior_Neuropixels_SWDB_2022_Tutorial_Solutions</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14668,23 +14668,23 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">platform</span>
 <span class="n">platstring</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">platform</span><span class="p">()</span>
 
-<span class="n">data_dirname</span> <span class="o">=</span> <span class="s1">'visual-behavior-neuropixels'</span>
+<span class="n">data_dirname</span> <span class="o">=</span> <span class="s1">&#39;visual-behavior-neuropixels&#39;</span>
 <span class="n">use_static</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="k">if</span> <span class="s1">'Darwin'</span> <span class="ow">in</span> <span class="n">platstring</span> <span class="ow">or</span> <span class="s1">'macOS'</span> <span class="ow">in</span> <span class="n">platstring</span><span class="p">:</span>
+<span class="k">if</span> <span class="s1">&#39;Darwin&#39;</span> <span class="ow">in</span> <span class="n">platstring</span> <span class="ow">or</span> <span class="s1">&#39;macOS&#39;</span> <span class="ow">in</span> <span class="n">platstring</span><span class="p">:</span>
     <span class="c1"># macOS </span>
-    <span class="n">data_root</span> <span class="o">=</span> <span class="s2">"/Volumes/Brain2022/"</span>
-<span class="k">elif</span> <span class="s1">'Windows'</span>  <span class="ow">in</span> <span class="n">platstring</span><span class="p">:</span>
+    <span class="n">data_root</span> <span class="o">=</span> <span class="s2">&quot;/Volumes/Brain2022/&quot;</span>
+<span class="k">elif</span> <span class="s1">&#39;Windows&#39;</span>  <span class="ow">in</span> <span class="n">platstring</span><span class="p">:</span>
     <span class="c1"># Windows (replace with the drive letter of USB drive)</span>
-    <span class="n">data_root</span> <span class="o">=</span> <span class="s2">"E:/"</span>
-<span class="k">elif</span> <span class="p">(</span><span class="s1">'amzn'</span> <span class="ow">in</span> <span class="n">platstring</span><span class="p">):</span>
+    <span class="n">data_root</span> <span class="o">=</span> <span class="s2">&quot;E:/&quot;</span>
+<span class="k">elif</span> <span class="p">(</span><span class="s1">&#39;amzn&#39;</span> <span class="ow">in</span> <span class="n">platstring</span><span class="p">):</span>
     <span class="c1"># then on AWS</span>
-    <span class="n">data_root</span> <span class="o">=</span> <span class="s2">"/data/"</span>
-    <span class="n">data_dirname</span> <span class="o">=</span> <span class="s1">'visual-behavior-neuropixels-data'</span>
+    <span class="n">data_root</span> <span class="o">=</span> <span class="s2">&quot;/data/&quot;</span>
+    <span class="n">data_dirname</span> <span class="o">=</span> <span class="s1">&#39;visual-behavior-neuropixels-data&#39;</span>
     <span class="n">use_static</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="c1"># then your own linux platform</span>
     <span class="c1"># EDIT location where you mounted hard drive</span>
-    <span class="n">data_root</span> <span class="o">=</span> <span class="s2">"/media/$USERNAME/Brain2022/"</span>
+    <span class="n">data_root</span> <span class="o">=</span> <span class="s2">&quot;/media/$USERNAME/Brain2022/&quot;</span>
 </pre></div>
 
      </div>
@@ -15009,11 +15009,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 
-<p>This table gives us lots of useful metadata about each recording session, including when the session took place, the `genotype`, `sex` and `age` of the mouse that was run, what brain areas were recorded and some important info about the stimulus. 
+<p>This table gives us lots of useful metadata about each recording session, including when the session took place, the <code>genotype</code>, <code>sex</code> and <code>age</code> of the mouse that was run, what brain areas were recorded and some important info about the stimulus. 
 
-<p>To demystify a few of these columns, let's briefly review the experimental design. Each mouse was trained with one of two image sets (`G` or `H`). The image set the mouse was trained with became highly familiar because each of the images was seen thousands of times. The image set the mouse was not trained with was observed for the first time during a Neuropixels recording session after the mouse had learned the task. 
+<p>To demystify a few of these columns, let's briefly review the experimental design. Each mouse was trained with one of two image sets (<code>G</code> or <code>H</code>). The image set the mouse was trained with became highly familiar because each of the images was seen thousands of times. The image set the mouse was not trained with was observed for the first time during a Neuropixels recording session after the mouse had learned the task. 
 
-<p>For the majority of mice, we recorded two sessions: one with the trained `Familiar` image set and one with a `Novel` image set. Note that two of the eight images were shared across these two image sets as diagrammed below for an example mouse that was trained with image set `G`. 
+<p>For the majority of mice, we recorded two sessions: one with the trained <code>Familiar</code> image set and one with a <code>Novel</code> image set. Note that two of the eight images were shared across these two image sets as diagrammed below for an example mouse that was trained with image set <code>G</code>. 
 
 </div>
 </div>
@@ -15068,7 +15068,7 @@ We can define each recording session by a few parameters in our sessions table, 
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ecephys_sessions_table</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">'experience_level'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ecephys_sessions_table</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;experience_level&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15125,7 +15125,7 @@ dtype: int64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ecephys_sessions_table</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">'image_set'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ecephys_sessions_table</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;image_set&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15183,7 +15183,7 @@ Now let's count how many sessions were <code>Novel</code> or <code>Familiar</cod
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ecephys_sessions_table</span><span class="o">.</span><span class="n">value_counts</span><span class="p">([</span><span class="s1">'experience_level'</span><span class="p">,</span> <span class="s1">'image_set'</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ecephys_sessions_table</span><span class="o">.</span><span class="n">value_counts</span><span class="p">([</span><span class="s1">&#39;experience_level&#39;</span><span class="p">,</span> <span class="s1">&#39;image_set&#39;</span><span class="p">])</span>
 </pre></div>
 
      </div>
@@ -15286,7 +15286,7 @@ dtype: int64</pre>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#print how many sessions for each</span>
-<span class="n">ecephys_sessions_table</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">'genotype'</span><span class="p">)</span>
+<span class="n">ecephys_sessions_table</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;genotype&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15332,7 +15332,7 @@ dtype: int64</pre>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Note we could also do this by using groupby</span>
-<span class="n">ecephys_sessions_table</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'genotype'</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">ecephys_sessions_table</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;genotype&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -15540,7 +15540,7 @@ In addition to different types of image sets, this dataset contains ephys record
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">novel_sessions</span> <span class="o">=</span> <span class="n">ecephys_sessions_table</span><span class="p">[</span><span class="n">ecephys_sessions_table</span><span class="p">[</span><span class="s1">'experience_level'</span><span class="p">]</span><span class="o">==</span><span class="s1">'Novel'</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">novel_sessions</span> <span class="o">=</span> <span class="n">ecephys_sessions_table</span><span class="p">[</span><span class="n">ecephys_sessions_table</span><span class="p">[</span><span class="s1">&#39;experience_level&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Novel&#39;</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -15570,8 +15570,8 @@ Now let's filter for novel sessions in Sst mice. (Hint, use both the <code>exper
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sst_novel_sessions</span> <span class="o">=</span> <span class="n">ecephys_sessions_table</span><span class="p">[(</span><span class="n">ecephys_sessions_table</span><span class="p">[</span><span class="s1">'genotype'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">'Sst'</span><span class="p">))</span> <span class="o">&amp;</span> 
-                                            <span class="p">(</span><span class="n">ecephys_sessions_table</span><span class="p">[</span><span class="s1">'experience_level'</span><span class="p">]</span><span class="o">==</span><span class="s1">'Novel'</span><span class="p">)]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sst_novel_sessions</span> <span class="o">=</span> <span class="n">ecephys_sessions_table</span><span class="p">[(</span><span class="n">ecephys_sessions_table</span><span class="p">[</span><span class="s1">&#39;genotype&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Sst&#39;</span><span class="p">))</span> <span class="o">&amp;</span> 
+                                            <span class="p">(</span><span class="n">ecephys_sessions_table</span><span class="p">[</span><span class="s1">&#39;experience_level&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Novel&#39;</span><span class="p">)]</span>
 <span class="n">sst_novel_sessions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -16246,7 +16246,7 @@ This table is a record of every stimulus we presented to the mouse over the cour
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[475]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stimulus_presentations</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'stimulus_block'</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stimulus_presentations</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;stimulus_block&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -16513,7 +16513,7 @@ Let's look at the first row for each block (Hint, you can use <code>.head(1)</co
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stimulus_presentations</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'stimulus_block'</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stimulus_presentations</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;stimulus_block&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -16745,7 +16745,7 @@ Let's look at the first row for each block (Hint, you can use <code>.head(1)</co
 
 This shows us the structure of this experiment (and every experiment in this dataset). There are 5 stimulus blocks as follows:
 
-<p><b>block 0</b>: Change detection task. Natural images are flashed repeatedly and the mouse is rewarded for licking when the identity of the image changes. You can find more info about this task [here](http://portal.brain-map.org/explore/circuits/visual-behavior-neuropixels?edit&language=en).
+<p><b>block 0</b>: Change detection task. Natural images are flashed repeatedly and the mouse is rewarded for licking when the identity of the image changes. You can find more info about this task <a href="http://portal.brain-map.org/explore/circuits/visual-behavior-neuropixels">here</a>.
 
 <p><b>block 1</b>: Brief gray screen (10 seconds)
 
@@ -16886,7 +16886,7 @@ This shows us the structure of this experiment (and every experiment in this dat
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># image changes during active behavior</span>
-<span class="n">stimulus_presentations</span><span class="p">[</span><span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">'active'</span><span class="p">]]</span><span class="o">.</span><span class="n">is_change</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">stimulus_presentations</span><span class="p">[</span><span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">&#39;active&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">is_change</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -17238,7 +17238,7 @@ For more information about many of the metrics included in this table and how to
 
 <p><b>INDEX</b>: Unique identifier for each unit. This will be the key to the session waveforms, spike_amplitudes and spike_times dictionaries.
 
-<p><b>Waveform metrics</b>: Look [here](https://github.com/AllenInstitute/ecephys_spike_sorting/tree/master/ecephys_spike_sorting/modules/mean_waveforms) for more detail on these metrics and the code that computes them. For the below descriptions the '1D waveform' is defined as the waveform on the peak channel. The '2D waveform' is the waveform across channels centered on the peak channel.
+<p><b>Waveform metrics</b>: Look <a href="https://github.com/AllenInstitute/ecephys_spike_sorting/tree/master/ecephys_spike_sorting/modules/mean_waveforms">here</a> for more detail on these metrics and the code that computes them. For the below descriptions the '1D waveform' is defined as the waveform on the peak channel. The '2D waveform' is the waveform across channels centered on the peak channel.
 
 <p><code>peak_channel_id</code>:                      channel ID for the channel on which unit's waveform had the largest amplitude  
 <p><code>amplitude</code>:                            Peak to trough amplitude for mean 1D waveform in microvolts   
@@ -17253,7 +17253,7 @@ For more information about many of the metrics included in this table and how to
 <p><code>snr</code>:                                  signal-to-noise ratio for 1D waveform        
 
 
-<p><b>Quality metrics</b>: Look [here](https://github.com/AllenInstitute/ecephys_spike_sorting/tree/7e567a6fc3fd2fc0eedef750b83b8b8a0d469544/ecephys_spike_sorting/modules/quality_metrics) for more detail on these metrics and the code that computes them.
+<p><b>Quality metrics</b>: Look <a href="https://github.com/AllenInstitute/ecephys_spike_sorting/tree/7e567a6fc3fd2fc0eedef750b83b8b8a0d469544/ecephys_spike_sorting/modules/quality_metrics">here</a> for more detail on these metrics and the code that computes them.
 
 <p><code>amplitude_cutoff</code>:                     estimate of miss rate based on amplitude histogram (ie fraction of spikes estimated to have been below detection threshold)  
 <p><code>cumulative_drift</code>:                     cumulative change in spike depth along probe throughout the recording  
@@ -17267,7 +17267,7 @@ For more information about many of the metrics included in this table and how to
 <p><code>nn_miss_rate</code>:                         Fraction of nearest neighbors for spikes outside unit cluster than are in unit cluster  
 <p><code>presence_ratio</code>:                       Fraction of time during session for which a unit was spiking  
 <p><code>silhouette_score</code>:                     Standard metric for cluster overlap, computed in PCA space    
-<p><code>quality</code>:                              Label assigned based on waveform shape as described [here](https://github.com/AllenInstitute/ecephys_spike_sorting/tree/7e567a6fc3fd2fc0eedef750b83b8b8a0d469544/ecephys_spike_sorting/modules/noise_templates). Either 'good' for physiological waveforms or 'noise' for artifactual waveforms.
+<p><code>quality</code>:                              Label assigned based on waveform shape as described <a href="https://github.com/AllenInstitute/ecephys_spike_sorting/tree/7e567a6fc3fd2fc0eedef750b83b8b8a0d469544/ecephys_spike_sorting/modules/noise_templates">here</a>. Either 'good' for physiological waveforms or 'noise' for artifactual waveforms.
 
 </div>
 </div>
@@ -17298,8 +17298,8 @@ For more information about many of the metrics included in this table and how to
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">waveform_duration</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">))</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'waveform duration (ms)'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Unit count'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;waveform duration (ms)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Unit count&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17359,12 +17359,12 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[484]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Only 'good' units</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Only &#39;good&#39; units</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">units</span><span class="p">[</span><span class="n">units</span><span class="o">.</span><span class="n">quality</span><span class="o">==</span><span class="s1">'good'</span><span class="p">]</span><span class="o">.</span><span class="n">waveform_duration</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">units</span><span class="p">[</span><span class="n">units</span><span class="o">.</span><span class="n">quality</span><span class="o">==</span><span class="s1">&#39;good&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">waveform_duration</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">))</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'waveform duration (ms)'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Unit count'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;waveform duration (ms)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Unit count&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17596,7 +17596,7 @@ Because we will want to use info from both the units table and the channels tabl
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">units</span> <span class="o">=</span> <span class="n">units</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">channels</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">'peak_channel_id'</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">units</span> <span class="o">=</span> <span class="n">units</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">channels</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;peak_channel_id&#39;</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17626,7 +17626,7 @@ Now we can use the merged units/channels table to show how many units were recor
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[113]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">units</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">'structure_acronym'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">units</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;structure_acronym&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17830,7 +17830,7 @@ Let's grab the spike times for the first unit in this list
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Get the brain region for this unit (remember the column with this info is called 'structure_acronym')</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Get the brain region for this unit (remember the column with this info is called &#39;structure_acronym&#39;)</span>
 <span class="n">unit_region</span> <span class="o">=</span> <span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1061853810</span><span class="p">]</span><span class="o">.</span><span class="n">structure_acronym</span>
 </pre></div>
 
@@ -17864,12 +17864,12 @@ Let's grab the spike times for the first unit in this list
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Plot the raster for the first 60 seconds (Hint: you can use matplotlibs "eventplot" to efficiently plot spike rasters)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Plot the raster for the first 60 seconds (Hint: you can use matplotlibs &quot;eventplot&quot; to efficiently plot spike rasters)</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">eventplot</span><span class="p">(</span><span class="n">unit_spikes</span><span class="p">[</span><span class="n">unit_spikes</span><span class="o">&lt;</span><span class="mi">60</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">'unit </span><span class="si">{</span><span class="mi">1061853810</span><span class="si">}</span><span class="s1"> in </span><span class="si">{</span><span class="n">unit_region</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Time, seconds'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">eventplot</span><span class="p">(</span><span class="n">unit_spikes</span><span class="p">[</span><span class="n">unit_spikes</span><span class="o">&lt;</span><span class="mi">60</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;unit </span><span class="si">{</span><span class="mi">1061853810</span><span class="si">}</span><span class="s1"> in </span><span class="si">{</span><span class="n">unit_region</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time, seconds&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -18030,10 +18030,10 @@ The waveform for each unit across all recording channels is stored in the <code>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">unit_waveform</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Sample number'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Channel'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'uV'</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">unit_waveform</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Sample number&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Channel&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;uV&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -18107,7 +18107,7 @@ Let's zoom in on the relevant section of the probe. We can use the column <code>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[53]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">peak_channel</span> <span class="o">=</span> <span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1061853810</span><span class="p">][</span><span class="s1">'probe_channel_number'</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">peak_channel</span> <span class="o">=</span> <span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1061853810</span><span class="p">][</span><span class="s1">&#39;probe_channel_number&#39;</span><span class="p">]</span>
 <span class="n">peak_channel</span>
 </pre></div>
 
@@ -18150,11 +18150,11 @@ Let's zoom in on the relevant section of the probe. We can use the column <code>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">unit_waveform</span><span class="p">[</span><span class="n">peak_channel</span><span class="o">-</span><span class="mi">15</span><span class="p">:</span><span class="n">peak_channel</span><span class="o">+</span><span class="mi">15</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">,</span> 
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">unit_waveform</span><span class="p">[</span><span class="n">peak_channel</span><span class="o">-</span><span class="mi">15</span><span class="p">:</span><span class="n">peak_channel</span><span class="o">+</span><span class="mi">15</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> 
                <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="n">peak_channel</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="n">peak_channel</span><span class="o">+</span><span class="mi">15</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Sample number'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Channel'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'uV'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Sample number&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Channel&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;uV&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -18236,9 +18236,9 @@ Now let's plot the 1D waveform on the peak channel for this unit. We'll convert 
 
 <span class="c1">#now plot the waveform</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">waveform_time</span><span class="p">,</span> <span class="n">unit_peak_waveform</span><span class="p">,</span> <span class="s1">'k'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'ms'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'uV'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">waveform_time</span><span class="p">,</span> <span class="n">unit_peak_waveform</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;ms&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;uV&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -18312,7 +18312,7 @@ How do the waveform metrics in the metrics table for this unit compare to what w
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[58]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1061853810</span><span class="p">][[</span><span class="s1">'waveform_duration'</span><span class="p">,</span> <span class="s1">'PT_ratio'</span><span class="p">,</span> <span class="s1">'amplitude'</span><span class="p">]])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1061853810</span><span class="p">][[</span><span class="s1">&#39;waveform_duration&#39;</span><span class="p">,</span> <span class="s1">&#39;PT_ratio&#39;</span><span class="p">,</span> <span class="s1">&#39;amplitude&#39;</span><span class="p">]])</span>
 </pre></div>
 
      </div>
@@ -18770,7 +18770,7 @@ Now let's explore the behavior trials table. This table contains lots of useful 
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get number of go trials</span>
 <span class="n">num_go</span> <span class="o">=</span> <span class="n">trials</span><span class="o">.</span><span class="n">go</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Total go trials: </span><span class="si">{</span><span class="n">num_go</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Total go trials: </span><span class="si">{</span><span class="n">num_go</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -18811,7 +18811,7 @@ Now let's explore the behavior trials table. This table contains lots of useful 
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get number of hits</span>
 <span class="n">num_hits</span> <span class="o">=</span> <span class="n">trials</span><span class="o">.</span><span class="n">hit</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Total hits: </span><span class="si">{</span><span class="n">num_hits</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Total hits: </span><span class="si">{</span><span class="n">num_hits</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -18852,7 +18852,7 @@ Now let's explore the behavior trials table. This table contains lots of useful 
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get hit rate</span>
 <span class="n">hit_rate</span> <span class="o">=</span> <span class="n">num_hits</span><span class="o">/</span><span class="n">num_go</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Hit rate: </span><span class="si">{</span><span class="n">hit_rate</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hit rate: </span><span class="si">{</span><span class="n">hit_rate</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -18937,7 +18937,7 @@ n<sub>k</sub>(t; t + &Delta;t) is the total count of spikes across trials in tha
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[61]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># grab the first 20 hit trials. To do this we'll use iloc to index the trials dataframe by position</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># grab the first 20 hit trials. To do this we&#39;ll use iloc to index the trials dataframe by position</span>
 <span class="n">first_20_hits</span> <span class="o">=</span> <span class="n">trials</span><span class="p">[</span><span class="n">trials</span><span class="o">.</span><span class="n">hit</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>
 <span class="n">first_20_hits</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -19836,10 +19836,10 @@ Now that we have our change times, we're almost ready to make our PSTH. Next we 
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Filter units by the quality criteria</span>
-<span class="n">good_units</span> <span class="o">=</span> <span class="n">units</span><span class="p">[(</span><span class="n">units</span><span class="p">[</span><span class="s1">'quality'</span><span class="p">]</span><span class="o">==</span><span class="s1">'good'</span><span class="p">)</span> <span class="o">&amp;</span>
-                   <span class="p">(</span><span class="n">units</span><span class="p">[</span><span class="s1">'firing_rate'</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span>
-                   <span class="p">(</span><span class="n">units</span><span class="p">[</span><span class="s1">'snr'</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span>
-                   <span class="p">(</span><span class="n">units</span><span class="p">[</span><span class="s1">'isi_violations'</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">good_units</span> <span class="o">=</span> <span class="n">units</span><span class="p">[(</span><span class="n">units</span><span class="p">[</span><span class="s1">&#39;quality&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;good&#39;</span><span class="p">)</span> <span class="o">&amp;</span>
+                   <span class="p">(</span><span class="n">units</span><span class="p">[</span><span class="s1">&#39;firing_rate&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span>
+                   <span class="p">(</span><span class="n">units</span><span class="p">[</span><span class="s1">&#39;snr&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span>
+                   <span class="p">(</span><span class="n">units</span><span class="p">[</span><span class="s1">&#39;isi_violations&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)]</span>
 </pre></div>
 
      </div>
@@ -19856,7 +19856,7 @@ Now that we have our change times, we're almost ready to make our PSTH. Next we 
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Grab an example V1 unit id from good_units</span>
-<span class="n">v1_unit_id</span> <span class="o">=</span> <span class="n">good_units</span><span class="p">[</span><span class="n">good_units</span><span class="p">[</span><span class="s1">'structure_acronym'</span><span class="p">]</span><span class="o">==</span><span class="s1">'VISp'</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#just take the first one</span>
+<span class="n">v1_unit_id</span> <span class="o">=</span> <span class="n">good_units</span><span class="p">[</span><span class="n">good_units</span><span class="p">[</span><span class="s1">&#39;structure_acronym&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;VISp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#just take the first one</span>
 </pre></div>
 
      </div>
@@ -19873,7 +19873,7 @@ Now that we have our change times, we're almost ready to make our PSTH. Next we 
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">makePSTH</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">startTimes</span><span class="p">,</span> <span class="n">windowDur</span><span class="p">,</span> <span class="n">binSize</span><span class="o">=</span><span class="mf">0.001</span><span class="p">):</span>
-    <span class="sd">'''</span>
+    <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Convenience function to compute a peri-stimulus-time histogram</span>
 <span class="sd">    (see section 7.2.2 here: https://neuronaldynamics.epfl.ch/online/Ch7.S2.html)</span>
 <span class="sd">    INPUTS:</span>
@@ -19887,7 +19887,7 @@ Now that we have our change times, we're almost ready to make our PSTH. Next we 
 <span class="sd">            PSTH gives the trial-averaged spike rate for </span>
 <span class="sd">                each time bin aligned to the start times;</span>
 <span class="sd">            bins are the bin edges as defined by numpy histogram</span>
-<span class="sd">    '''</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">windowDur</span><span class="o">+</span><span class="n">binSize</span><span class="p">,</span><span class="n">binSize</span><span class="p">)</span>
     <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">bins</span><span class="o">.</span><span class="n">size</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">start</span> <span class="ow">in</span> <span class="n">startTimes</span><span class="p">:</span>
@@ -19965,10 +19965,10 @@ Now that we have our change times, we're almost ready to make our PSTH. Next we 
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the PSTH</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">unit_psth</span><span class="p">,</span> <span class="s1">'k'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Time from change (seconds)'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Firing Rate'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">'unit id: </span><span class="si">{</span><span class="n">v1_unit_id</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">unit_psth</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time from change (seconds)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Firing Rate&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;unit id: </span><span class="si">{</span><span class="n">v1_unit_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -20056,7 +20056,7 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[147]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Let's get the four behavior data frames</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Let&#39;s get the four behavior data frames</span>
 <span class="n">rewards</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">rewards</span>
 <span class="n">eye_tracking</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">eye_tracking</span>
 <span class="n">running_speed</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">running_speed</span>
@@ -20341,8 +20341,8 @@ Let's grab a random reward to align the rest of the behavior data to:
 <span class="n">time_after</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1">#how much time to plot after the reward</span>
 
 <span class="c1">#Get running data aligned to this reward</span>
-<span class="n">trial_running</span> <span class="o">=</span> <span class="n">running_speed</span><span class="p">[(</span><span class="n">running_speed</span><span class="p">[</span><span class="s1">'timestamps'</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">reward_time</span><span class="o">-</span><span class="n">time_before</span><span class="p">)</span><span class="o">&amp;</span>
-                              <span class="p">(</span><span class="n">running_speed</span><span class="p">[</span><span class="s1">'timestamps'</span><span class="p">]</span><span class="o">&lt;</span> <span class="n">reward_time</span><span class="o">+</span><span class="n">time_after</span><span class="p">)]</span>
+<span class="n">trial_running</span> <span class="o">=</span> <span class="n">running_speed</span><span class="p">[(</span><span class="n">running_speed</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">reward_time</span><span class="o">-</span><span class="n">time_before</span><span class="p">)</span><span class="o">&amp;</span>
+                              <span class="p">(</span><span class="n">running_speed</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">]</span><span class="o">&lt;</span> <span class="n">reward_time</span><span class="o">+</span><span class="n">time_after</span><span class="p">)]</span>
 </pre></div>
 
      </div>
@@ -20374,15 +20374,15 @@ Let's grab a random reward to align the rest of the behavior data to:
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># plot the running</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax_running</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
-<span class="n">ax_running</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trial_running</span><span class="p">[</span><span class="s1">'timestamps'</span><span class="p">],</span> <span class="n">trial_running</span><span class="p">[</span><span class="s1">'speed'</span><span class="p">],</span> <span class="s1">'k'</span><span class="p">)</span>
+<span class="n">ax_running</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trial_running</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">],</span> <span class="n">trial_running</span><span class="p">[</span><span class="s1">&#39;speed&#39;</span><span class="p">],</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
 
 <span class="c1"># label our axes</span>
-<span class="n">ax_running</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Time (seconds)'</span><span class="p">)</span>
-<span class="n">ax_running</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Running speed (cm/s)'</span><span class="p">)</span>
+<span class="n">ax_running</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time (seconds)&#39;</span><span class="p">)</span>
+<span class="n">ax_running</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Running speed (cm/s)&#39;</span><span class="p">)</span>
 
 <span class="c1"># now plot the reward</span>
-<span class="n">ax_running</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">reward_time</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'b'</span><span class="p">)</span>
-<span class="n">ax_running</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">'run speed'</span><span class="p">,</span> <span class="s1">'reward time'</span><span class="p">])</span>
+<span class="n">ax_running</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">reward_time</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax_running</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;run speed&#39;</span><span class="p">,</span> <span class="s1">&#39;reward time&#39;</span><span class="p">])</span>
 </pre></div>
 
      </div>
@@ -20701,7 +20701,7 @@ There seem to be several rows for which there are no valid data. We can use the 
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[156]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">eye_tracking_noblinks</span> <span class="o">=</span> <span class="n">eye_tracking</span><span class="p">[</span><span class="o">~</span><span class="n">eye_tracking</span><span class="p">[</span><span class="s1">'likely_blink'</span><span class="p">]]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">eye_tracking_noblinks</span> <span class="o">=</span> <span class="n">eye_tracking</span><span class="p">[</span><span class="o">~</span><span class="n">eye_tracking</span><span class="p">[</span><span class="s1">&#39;likely_blink&#39;</span><span class="p">]]</span>
 <span class="n">eye_tracking_noblinks</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -20945,19 +20945,19 @@ There seem to be several rows for which there are no valid data. We can use the 
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># First make a dataframe to store the eye tracking data in our time window</span>
-<span class="n">trial_eye_tracking_data</span> <span class="o">=</span> <span class="n">eye_tracking_noblinks</span><span class="p">[(</span><span class="n">eye_tracking_noblinks</span><span class="p">[</span><span class="s1">'timestamps'</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">reward_time</span><span class="o">-</span><span class="n">time_before</span><span class="p">)</span><span class="o">&amp;</span>
-                                         <span class="p">(</span><span class="n">eye_tracking_noblinks</span><span class="p">[</span><span class="s1">'timestamps'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">reward_time</span><span class="o">+</span><span class="n">time_after</span><span class="p">)]</span>
+<span class="n">trial_eye_tracking_data</span> <span class="o">=</span> <span class="n">eye_tracking_noblinks</span><span class="p">[(</span><span class="n">eye_tracking_noblinks</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">reward_time</span><span class="o">-</span><span class="n">time_before</span><span class="p">)</span><span class="o">&amp;</span>
+                                         <span class="p">(</span><span class="n">eye_tracking_noblinks</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">reward_time</span><span class="o">+</span><span class="n">time_after</span><span class="p">)]</span>
 
 <span class="c1"># Now plot the pupil_area column for this dataframe. Use the timestamps column for your x values</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax_pupil</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 
-<span class="n">ax_pupil</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trial_eye_tracking_data</span><span class="p">[</span><span class="s1">'timestamps'</span><span class="p">],</span> <span class="n">trial_eye_tracking_data</span><span class="p">[</span><span class="s1">'pupil_area'</span><span class="p">],</span> <span class="s1">'g'</span><span class="p">)</span>
-<span class="n">ax_pupil</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'pupil area</span><span class="se">\n</span><span class="s1">$(pixels^2)$'</span><span class="p">)</span>
+<span class="n">ax_pupil</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trial_eye_tracking_data</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">],</span> <span class="n">trial_eye_tracking_data</span><span class="p">[</span><span class="s1">&#39;pupil_area&#39;</span><span class="p">],</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">ax_pupil</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;pupil area</span><span class="se">\n</span><span class="s1">$(pixels^2)$&#39;</span><span class="p">)</span>
 
 <span class="c1"># now plot the reward</span>
-<span class="n">ax_pupil</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">reward_time</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'b'</span><span class="p">)</span>
-<span class="n">ax_pupil</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">'pupil_area'</span><span class="p">,</span> <span class="s1">'reward time'</span><span class="p">])</span>
+<span class="n">ax_pupil</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">reward_time</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax_pupil</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;pupil_area&#39;</span><span class="p">,</span> <span class="s1">&#39;reward time&#39;</span><span class="p">])</span>
 </pre></div>
 
      </div>
@@ -21136,18 +21136,18 @@ jp-needs-light-background
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Get licking aligned to this reward</span>
-<span class="n">trial_licking</span> <span class="o">=</span> <span class="n">licks</span><span class="p">[(</span><span class="n">licks</span><span class="p">[</span><span class="s1">'timestamps'</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">reward_time</span><span class="o">-</span><span class="n">time_before</span><span class="p">)</span><span class="o">&amp;</span>
-                      <span class="p">(</span><span class="n">licks</span><span class="p">[</span><span class="s1">'timestamps'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">reward_time</span><span class="o">+</span><span class="n">time_after</span><span class="p">)]</span>
+<span class="n">trial_licking</span> <span class="o">=</span> <span class="n">licks</span><span class="p">[(</span><span class="n">licks</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">reward_time</span><span class="o">-</span><span class="n">time_before</span><span class="p">)</span><span class="o">&amp;</span>
+                      <span class="p">(</span><span class="n">licks</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">reward_time</span><span class="o">+</span><span class="n">time_after</span><span class="p">)]</span>
 
 <span class="c1"># plot it</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax_licking</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 
-<span class="n">ax_licking</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trial_licking</span><span class="p">[</span><span class="s1">'timestamps'</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trial_licking</span><span class="p">[</span><span class="s1">'timestamps'</span><span class="p">])),</span> <span class="s1">'mo'</span><span class="p">)</span>
+<span class="n">ax_licking</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trial_licking</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trial_licking</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">])),</span> <span class="s1">&#39;mo&#39;</span><span class="p">)</span>
 
 <span class="c1"># now plot the reward</span>
-<span class="n">ax_licking</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">reward_time</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'b'</span><span class="p">)</span>
-<span class="n">ax_licking</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">'pupil_area'</span><span class="p">,</span> <span class="s1">'reward time'</span><span class="p">])</span>
+<span class="n">ax_licking</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">reward_time</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax_licking</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;pupil_area&#39;</span><span class="p">,</span> <span class="s1">&#39;reward time&#39;</span><span class="p">])</span>
 </pre></div>
 
      </div>
@@ -21225,46 +21225,46 @@ Below, we'll put all of these plots together, and add bars to denote the stimulu
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the running</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax_running</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
-<span class="n">ax_running</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trial_running</span><span class="p">[</span><span class="s1">'timestamps'</span><span class="p">],</span> <span class="n">trial_running</span><span class="p">[</span><span class="s1">'speed'</span><span class="p">],</span> <span class="s1">'k'</span><span class="p">)</span>
+<span class="n">ax_running</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trial_running</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">],</span> <span class="n">trial_running</span><span class="p">[</span><span class="s1">&#39;speed&#39;</span><span class="p">],</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
 
 <span class="c1"># now plot the reward</span>
-<span class="n">rew_handle</span> <span class="o">=</span> <span class="n">ax_running</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">reward_time</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'b'</span><span class="p">)</span>
+<span class="n">rew_handle</span> <span class="o">=</span> <span class="n">ax_running</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">reward_time</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
 
 <span class="c1"># label our axes</span>
-<span class="n">ax_running</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Time (seconds)'</span><span class="p">)</span>
-<span class="n">ax_running</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Running speed (cm/s)'</span><span class="p">)</span>
+<span class="n">ax_running</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time (seconds)&#39;</span><span class="p">)</span>
+<span class="n">ax_running</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Running speed (cm/s)&#39;</span><span class="p">)</span>
 
 <span class="c1"># Plot the pupil area on a new axis with the same x-axis as the running data</span>
 <span class="n">ax_pupil</span> <span class="o">=</span> <span class="n">ax_running</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
-<span class="n">ax_pupil</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trial_eye_tracking_data</span><span class="p">[</span><span class="s1">'timestamps'</span><span class="p">],</span> <span class="n">trial_eye_tracking_data</span><span class="p">[</span><span class="s1">'pupil_area'</span><span class="p">],</span> <span class="s1">'g'</span><span class="p">)</span>
-<span class="n">ax_pupil</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'pupil area</span><span class="se">\n</span><span class="s1">$(pixels^2)$'</span><span class="p">)</span>
+<span class="n">ax_pupil</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trial_eye_tracking_data</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">],</span> <span class="n">trial_eye_tracking_data</span><span class="p">[</span><span class="s1">&#39;pupil_area&#39;</span><span class="p">],</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">ax_pupil</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;pupil area</span><span class="se">\n</span><span class="s1">$(pixels^2)$&#39;</span><span class="p">)</span>
 
 <span class="c1"># format the pupil axis to match the plot color</span>
-<span class="n">ax_pupil</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">'g'</span><span class="p">)</span>
-<span class="n">ax_pupil</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">'right'</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">'g'</span><span class="p">)</span>
-<span class="n">ax_pupil</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">'y'</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">'g'</span><span class="p">)</span>
+<span class="n">ax_pupil</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">ax_pupil</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">ax_pupil</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
 
 <span class="c1"># Plot the licking. Just use the running axis.</span>
-<span class="n">lick_handle</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax_running</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trial_licking</span><span class="p">[</span><span class="s1">'timestamps'</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trial_licking</span><span class="p">[</span><span class="s1">'timestamps'</span><span class="p">])),</span> <span class="s1">'mo'</span><span class="p">)</span>
+<span class="n">lick_handle</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax_running</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trial_licking</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trial_licking</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">])),</span> <span class="s1">&#39;mo&#39;</span><span class="p">)</span>
 
 
 <span class="c1">#Now add a legend to label the reward and licks</span>
-<span class="n">ax_running</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="n">rew_handle</span><span class="p">,</span> <span class="n">lick_handle</span><span class="p">],</span> <span class="p">[</span><span class="s1">'reward'</span><span class="p">,</span> <span class="s1">'licks'</span><span class="p">])</span>
+<span class="n">ax_running</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="n">rew_handle</span><span class="p">,</span> <span class="n">lick_handle</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;reward&#39;</span><span class="p">,</span> <span class="s1">&#39;licks&#39;</span><span class="p">])</span>
 
 
 <span class="c1">#Plot the image flashes as grey bars. </span>
 <span class="c1">#Get stimulus presentations around this reward</span>
-<span class="n">behavior_presentations</span> <span class="o">=</span> <span class="n">stimulus_presentations</span><span class="p">[</span><span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">'active'</span><span class="p">]]</span>
-<span class="n">trial_stimuli</span> <span class="o">=</span> <span class="n">behavior_presentations</span><span class="p">[(</span><span class="n">behavior_presentations</span><span class="p">[</span><span class="s1">'start_time'</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">reward_time</span><span class="o">-</span><span class="n">time_before</span><span class="p">)</span><span class="o">&amp;</span>
-                      <span class="p">(</span><span class="n">behavior_presentations</span><span class="p">[</span><span class="s1">'start_time'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">reward_time</span><span class="o">+</span><span class="n">time_after</span><span class="p">)]</span>
+<span class="n">behavior_presentations</span> <span class="o">=</span> <span class="n">stimulus_presentations</span><span class="p">[</span><span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">&#39;active&#39;</span><span class="p">]]</span>
+<span class="n">trial_stimuli</span> <span class="o">=</span> <span class="n">behavior_presentations</span><span class="p">[(</span><span class="n">behavior_presentations</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">reward_time</span><span class="o">-</span><span class="n">time_before</span><span class="p">)</span><span class="o">&amp;</span>
+                      <span class="p">(</span><span class="n">behavior_presentations</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">reward_time</span><span class="o">+</span><span class="n">time_after</span><span class="p">)]</span>
 
 <span class="c1">#Specify different colors for the 2 images shown in this window</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'0.3'</span><span class="p">,</span> <span class="s1">'0.8'</span><span class="p">]</span>
-<span class="n">stimulus_colors</span> <span class="o">=</span> <span class="p">{</span><span class="n">stim</span><span class="p">:</span> <span class="n">c</span> <span class="k">for</span> <span class="n">stim</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">trial_stimuli</span><span class="p">[</span><span class="s1">'image_name'</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span> <span class="n">colors</span><span class="p">)}</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0.3&#39;</span><span class="p">,</span> <span class="s1">&#39;0.8&#39;</span><span class="p">]</span>
+<span class="n">stimulus_colors</span> <span class="o">=</span> <span class="p">{</span><span class="n">stim</span><span class="p">:</span> <span class="n">c</span> <span class="k">for</span> <span class="n">stim</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">trial_stimuli</span><span class="p">[</span><span class="s1">&#39;image_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span> <span class="n">colors</span><span class="p">)}</span>
 <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">stimulus</span> <span class="ow">in</span> <span class="n">trial_stimuli</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="n">ax_running</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">stimulus</span><span class="p">[</span><span class="s1">'start_time'</span><span class="p">],</span> <span class="n">stimulus</span><span class="p">[</span><span class="s1">'stop_time'</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">stimulus_colors</span><span class="p">[</span><span class="n">stimulus</span><span class="p">[</span><span class="s1">'image_name'</span><span class="p">]],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax_running</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">stimulus</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">],</span> <span class="n">stimulus</span><span class="p">[</span><span class="s1">&#39;stop_time&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">stimulus_colors</span><span class="p">[</span><span class="n">stimulus</span><span class="p">[</span><span class="s1">&#39;image_name&#39;</span><span class="p">]],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
     
-<span class="n">ax_running</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Single trial change-aligned running speed, pupil size, licks, and rewards'</span><span class="p">)</span>
+<span class="n">ax_running</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Single trial change-aligned running speed, pupil size, licks, and rewards&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -21348,7 +21348,7 @@ jp-needs-light-background
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">getImageNovelty</span><span class="p">(</span><span class="n">image_name</span><span class="p">,</span> <span class="n">sessionID</span><span class="p">,</span> <span class="n">ecephys_sessions_table</span><span class="p">):</span>
-    <span class="sd">'''</span>
+    <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Function to help annotate the stimulus_presentations table</span>
 <span class="sd">    to indicate the following info:</span>
 <span class="sd">        1) whether a given image was:</span>
@@ -21363,17 +21363,17 @@ jp-needs-light-background
 <span class="sd">    OUTPUT:</span>
 <span class="sd">        Tuple indicating (image_set, image_novelty) for this image</span>
 
-<span class="sd">    '''</span>
-    <span class="n">session_id</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">'ecephys_session_id'</span><span class="p">]</span>
-    <span class="n">is_novel_image_set</span> <span class="o">=</span> <span class="n">ecephys_sessions_table</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">session_id</span><span class="p">][</span><span class="s1">'experience_level'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'Novel'</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">session_id</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;ecephys_session_id&#39;</span><span class="p">]</span>
+    <span class="n">is_novel_image_set</span> <span class="o">=</span> <span class="n">ecephys_sessions_table</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">session_id</span><span class="p">][</span><span class="s1">&#39;experience_level&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Novel&#39;</span>
 
     <span class="n">IMAGE_GROUP_KEY</span><span class="o">=</span><span class="p">{</span>
-                <span class="s1">'G'</span> <span class="p">:</span> <span class="p">[</span><span class="s1">'im012_r'</span><span class="p">,</span> <span class="s1">'im036_r'</span><span class="p">,</span> <span class="s1">'im044_r'</span><span class="p">,</span> 
-                    <span class="s1">'im047_r'</span><span class="p">,</span> <span class="s1">'im078_r'</span><span class="p">,</span> <span class="s1">'im115_r'</span><span class="p">],</span>
-                <span class="s1">'H'</span> <span class="p">:</span> <span class="p">[</span><span class="s1">'im005_r'</span><span class="p">,</span> <span class="s1">'im024_r'</span><span class="p">,</span> <span class="s1">'im034_r'</span><span class="p">,</span> 
-                    <span class="s1">'im087_r'</span><span class="p">,</span> <span class="s1">'im104_r'</span><span class="p">,</span> <span class="s1">'im114_r'</span><span class="p">],</span>
-                <span class="s1">'shared'</span> <span class="p">:</span> <span class="p">[</span><span class="s1">'im083_r'</span><span class="p">,</span> <span class="s1">'im111_r'</span><span class="p">],</span>
-                <span class="s1">'omitted'</span> <span class="p">:</span> <span class="p">[</span><span class="s1">'omitted'</span><span class="p">]</span>
+                <span class="s1">&#39;G&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;im012_r&#39;</span><span class="p">,</span> <span class="s1">&#39;im036_r&#39;</span><span class="p">,</span> <span class="s1">&#39;im044_r&#39;</span><span class="p">,</span> 
+                    <span class="s1">&#39;im047_r&#39;</span><span class="p">,</span> <span class="s1">&#39;im078_r&#39;</span><span class="p">,</span> <span class="s1">&#39;im115_r&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;H&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;im005_r&#39;</span><span class="p">,</span> <span class="s1">&#39;im024_r&#39;</span><span class="p">,</span> <span class="s1">&#39;im034_r&#39;</span><span class="p">,</span> 
+                    <span class="s1">&#39;im087_r&#39;</span><span class="p">,</span> <span class="s1">&#39;im104_r&#39;</span><span class="p">,</span> <span class="s1">&#39;im114_r&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;shared&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;im083_r&#39;</span><span class="p">,</span> <span class="s1">&#39;im111_r&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;omitted&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;omitted&#39;</span><span class="p">]</span>
                 <span class="p">}</span>
     
     <span class="c1"># First check that this image is one of the Natural Images used</span>
@@ -21387,11 +21387,11 @@ jp-needs-light-background
                                 <span class="k">if</span> <span class="n">image_name</span> <span class="ow">in</span> <span class="n">image_set</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     
     <span class="c1">#Get the image novelty for this image</span>
-    <span class="k">if</span> <span class="n">image_set_for_this_image</span> <span class="o">==</span> <span class="s1">'omitted'</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">image_set_for_this_image</span> <span class="o">==</span> <span class="s1">&#39;omitted&#39;</span><span class="p">:</span>
         <span class="n">novelty_for_this_image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">novelty_for_this_image</span> <span class="o">=</span> <span class="p">(</span><span class="n">is_novel_image_set</span><span class="p">)</span> <span class="ow">and</span> \
-                            <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">image_set_for_this_image</span><span class="p">,</span> <span class="p">[</span><span class="s1">'G'</span><span class="p">,</span> <span class="s1">'H'</span><span class="p">]))</span>
+                            <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">image_set_for_this_image</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">]))</span>
     
 
     <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">novelty_for_this_image</span><span class="p">)</span>
@@ -21427,10 +21427,10 @@ Now let's apply that function to our stimulus_presentations table and add the ne
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">is_novel</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">rowindex</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">stimulus_presentations</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="n">is_this_image_novel</span> <span class="o">=</span> <span class="n">getImageNovelty</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">'image_name'</span><span class="p">],</span> <span class="n">session_id</span><span class="p">,</span> <span class="n">ecephys_sessions_table</span><span class="p">)</span>
+    <span class="n">is_this_image_novel</span> <span class="o">=</span> <span class="n">getImageNovelty</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;image_name&#39;</span><span class="p">],</span> <span class="n">session_id</span><span class="p">,</span> <span class="n">ecephys_sessions_table</span><span class="p">)</span>
     <span class="n">is_novel</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">is_this_image_novel</span><span class="p">)</span>
 
-<span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">'is_novel'</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_novel</span>
+<span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">&#39;is_novel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_novel</span>
 </pre></div>
 
      </div>
@@ -21484,8 +21484,8 @@ Now let's apply that function to our stimulus_presentations table and add the ne
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[157]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">is_novel</span> <span class="o">=</span> <span class="n">stimulus_presentations</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">getImageNovelty</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">'image_name'</span><span class="p">],</span> <span class="n">session_id</span><span class="p">,</span> <span class="n">ecephys_sessions_table</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  
-<span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">'is_novel'</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_novel</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">is_novel</span> <span class="o">=</span> <span class="n">stimulus_presentations</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">getImageNovelty</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;image_name&#39;</span><span class="p">],</span> <span class="n">session_id</span><span class="p">,</span> <span class="n">ecephys_sessions_table</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  
+<span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">&#39;is_novel&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_novel</span>
 </pre></div>
 
      </div>
@@ -21501,7 +21501,7 @@ Now let's apply that function to our stimulus_presentations table and add the ne
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[158]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stimulus_presentations</span><span class="p">[</span><span class="mi">120</span><span class="p">:</span><span class="mi">130</span><span class="p">][[</span><span class="s1">'is_novel'</span><span class="p">,</span> <span class="s1">'image_name'</span><span class="p">]]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stimulus_presentations</span><span class="p">[</span><span class="mi">120</span><span class="p">:</span><span class="mi">130</span><span class="p">][[</span><span class="s1">&#39;is_novel&#39;</span><span class="p">,</span> <span class="s1">&#39;image_name&#39;</span><span class="p">]]</span>
 </pre></div>
 
      </div>
@@ -21635,7 +21635,7 @@ Now let's apply that function to our stimulus_presentations table and add the ne
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Grab the portion of the stim table that describes the active behavior stimuli</span>
-<span class="n">task_stim_table</span> <span class="o">=</span> <span class="n">stimulus_presentations</span><span class="p">[</span><span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">'active'</span><span class="p">]]</span>
+<span class="n">task_stim_table</span> <span class="o">=</span> <span class="n">stimulus_presentations</span><span class="p">[</span><span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">&#39;active&#39;</span><span class="p">]]</span>
 </pre></div>
 
      </div>
@@ -21716,9 +21716,9 @@ To make this 3D array, first we'll need to get the spike times for VISp units du
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Filter units by the quality criteria</span>
-<span class="n">good_units</span> <span class="o">=</span> <span class="n">units</span><span class="p">[(</span><span class="n">units</span><span class="p">[</span><span class="s1">'quality'</span><span class="p">]</span><span class="o">==</span><span class="s1">'good'</span><span class="p">)</span> <span class="o">&amp;</span>
-                   <span class="p">(</span><span class="n">units</span><span class="p">[</span><span class="s1">'snr'</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span>
-                   <span class="p">(</span><span class="n">units</span><span class="p">[</span><span class="s1">'isi_violations'</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">good_units</span> <span class="o">=</span> <span class="n">units</span><span class="p">[(</span><span class="n">units</span><span class="p">[</span><span class="s1">&#39;quality&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;good&#39;</span><span class="p">)</span> <span class="o">&amp;</span>
+                   <span class="p">(</span><span class="n">units</span><span class="p">[</span><span class="s1">&#39;snr&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span>
+                   <span class="p">(</span><span class="n">units</span><span class="p">[</span><span class="s1">&#39;isi_violations&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)]</span>
 </pre></div>
 
      </div>
@@ -21750,7 +21750,7 @@ Now let's grab the good units in VISp
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Now grab the VISp units from this dataframe by filtering on the structure_acronym column</span>
-<span class="n">visp_units</span> <span class="o">=</span> <span class="n">good_units</span><span class="p">[</span><span class="n">good_units</span><span class="p">[</span><span class="s1">'structure_acronym'</span><span class="p">]</span><span class="o">==</span><span class="s1">'VISp'</span><span class="p">]</span>
+<span class="n">visp_units</span> <span class="o">=</span> <span class="n">good_units</span><span class="p">[</span><span class="n">good_units</span><span class="p">[</span><span class="s1">&#39;structure_acronym&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;VISp&#39;</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -21784,13 +21784,13 @@ We've provided a convenient function to help make our 3D array. Let's look at it
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">make_neuron_time_trials_array</span><span class="p">(</span><span class="n">units</span><span class="p">,</span> <span class="n">spike_times</span><span class="p">,</span> <span class="n">stim_table</span><span class="p">,</span> 
                                    <span class="n">time_before</span><span class="p">,</span> <span class="n">trial_duration</span><span class="p">,</span>
                                    <span class="n">bin_size</span><span class="o">=</span><span class="mf">0.001</span><span class="p">):</span>
-    <span class="sd">'''</span>
+    <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Function to make a 3D array with dimensions [neurons, time bins, trials] to store</span>
 <span class="sd">    the spike counts for stimulus presentation trials. </span>
 <span class="sd">    INPUTS:</span>
 <span class="sd">        units: dataframe with unit info (same form as session.units table)</span>
 <span class="sd">        stim_table: dataframe whose indices are trial ids and containing a</span>
-<span class="sd">            'start_time' column indicating when each trial began</span>
+<span class="sd">            &#39;start_time&#39; column indicating when each trial began</span>
 <span class="sd">        time_before: seconds to take before each start_time in the stim_table</span>
 <span class="sd">        trial_duration: total time in seconds to take for each trial</span>
 <span class="sd">        bin_size: bin_size in seconds used to bin spike counts </span>
@@ -21798,7 +21798,7 @@ We've provided a convenient function to help make our 3D array. Let's look at it
 <span class="sd">        unit_array: 3D array storing spike counts. The value in [i,j,k] </span>
 <span class="sd">            is the spike count for neuron i at time bin j in the kth trial.</span>
 <span class="sd">        time_vector: vector storing the trial timestamps for the time bins</span>
-<span class="sd">    '''</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="c1"># Get dimensions of output array</span>
     <span class="n">neuron_number</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">units</span><span class="p">)</span>
     <span class="n">trial_number</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">stim_table</span><span class="p">)</span>
@@ -22010,7 +22010,7 @@ Now we can use these indices to plot the PSTHs across V1 for familiar and novel 
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">'VISp'</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;VISp&#39;</span><span class="p">)</span>
 
 <span class="c1"># Loop through our familiar and novel array indices</span>
 <span class="k">for</span> <span class="n">array_flash_indices</span> <span class="ow">in</span> <span class="p">[</span><span class="n">familiar_array_indices</span><span class="p">,</span> <span class="n">novel_array_indices</span><span class="p">]:</span>
@@ -22021,16 +22021,16 @@ Now we can use these indices to plot the PSTHs across V1 for familiar and novel 
     <span class="c1"># We can use numpy mean to average over units and trials (the 0th and 2nd dimension of our array)</span>
     <span class="n">mean_over_neurons_trials</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">relevant_trials</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
     
-    <span class="c1"># Now plot. We're plotting twice to show two time scales.</span>
+    <span class="c1"># Now plot. We&#39;re plotting twice to show two time scales.</span>
     <span class="n">xlims</span> <span class="o">=</span> <span class="p">([</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
     <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">xlim</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">xlims</span><span class="p">):</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">mean_over_neurons_trials</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xlim</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'time from change (s)'</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'firing rate (Hz)'</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time from change (s)&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;firing rate (Hz)&#39;</span><span class="p">)</span>
 
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'inset'</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">'Familiar'</span><span class="p">,</span> <span class="s1">'Novel'</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;inset&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Familiar&#39;</span><span class="p">,</span> <span class="s1">&#39;Novel&#39;</span><span class="p">])</span>
 </pre></div>
 
      </div>
@@ -22111,11 +22111,11 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[150]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#First, let's annotate the trials by the novelty of their change image using the getImageNovelty function</span>
-<span class="n">is_novel</span> <span class="o">=</span> <span class="n">trials</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">getImageNovelty</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">'change_image_name'</span><span class="p">],</span> <span class="n">session_id</span><span class="p">,</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#First, let&#39;s annotate the trials by the novelty of their change image using the getImageNovelty function</span>
+<span class="n">is_novel</span> <span class="o">=</span> <span class="n">trials</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">getImageNovelty</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;change_image_name&#39;</span><span class="p">],</span> <span class="n">session_id</span><span class="p">,</span> 
                                                     <span class="n">ecephys_sessions_table</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="n">trials</span><span class="p">[</span><span class="s1">'is_novel_change_image'</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_novel</span>
+<span class="n">trials</span><span class="p">[</span><span class="s1">&#39;is_novel_change_image&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_novel</span>
 </pre></div>
 
      </div>
@@ -22145,7 +22145,7 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[151]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">go_trials</span> <span class="o">=</span> <span class="n">trials</span><span class="p">[</span><span class="n">trials</span><span class="p">[</span><span class="s1">'go'</span><span class="p">]]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">go_trials</span> <span class="o">=</span> <span class="n">trials</span><span class="p">[</span><span class="n">trials</span><span class="p">[</span><span class="s1">&#39;go&#39;</span><span class="p">]]</span>
 </pre></div>
 
      </div>
@@ -22182,7 +22182,7 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[153]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">image_go_data</span> <span class="o">=</span> <span class="n">go_trials</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'change_image_name'</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">image_go_data</span> <span class="o">=</span> <span class="n">go_trials</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;change_image_name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
 <span class="n">image_go_data</span>
 </pre></div>
 
@@ -22513,7 +22513,7 @@ As you can see, many of these columns aren't very meaningful. Let's select only 
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[155]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">image_go_data</span> <span class="o">=</span> <span class="n">image_go_data</span><span class="p">[[</span><span class="s1">'stimulus_change'</span><span class="p">,</span> <span class="s1">'hit'</span><span class="p">,</span> <span class="s1">'is_novel_change_image'</span><span class="p">]]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">image_go_data</span> <span class="o">=</span> <span class="n">image_go_data</span><span class="p">[[</span><span class="s1">&#39;stimulus_change&#39;</span><span class="p">,</span> <span class="s1">&#39;hit&#39;</span><span class="p">,</span> <span class="s1">&#39;is_novel_change_image&#39;</span><span class="p">]]</span>
 <span class="n">image_go_data</span>
 </pre></div>
 
@@ -22647,8 +22647,8 @@ Let's clean this dataframe up a bit by setting all of the rows with <code>is_nov
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[159]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">image_go_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">image_go_data</span><span class="p">[</span><span class="s1">'is_novel_change_image'</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'is_novel_change_image'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">image_go_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">image_go_data</span><span class="p">[</span><span class="s1">'is_novel_change_image'</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'is_novel_change_image'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">image_go_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">image_go_data</span><span class="p">[</span><span class="s1">&#39;is_novel_change_image&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;is_novel_change_image&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">image_go_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">image_go_data</span><span class="p">[</span><span class="s1">&#39;is_novel_change_image&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;is_novel_change_image&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 </pre></div>
 
      </div>
@@ -22706,7 +22706,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">hit_rates</span> <span class="o">=</span> <span class="n">image_go_data</span><span class="o">.</span><span class="n">hit</span><span class="o">.</span><span class="n">values</span><span class="o">/</span><span class="n">image_go_data</span><span class="o">.</span><span class="n">stimulus_change</span><span class="o">.</span><span class="n">values</span>
-<span class="n">image_go_data</span><span class="p">[</span><span class="s1">'hit_rate'</span><span class="p">]</span> <span class="o">=</span> <span class="n">hit_rates</span>
+<span class="n">image_go_data</span><span class="p">[</span><span class="s1">&#39;hit_rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hit_rates</span>
 </pre></div>
 
      </div>
@@ -22750,8 +22750,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[161]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># We can display the results with cells color-coded by their hit rate to make it easier to see what's going on here</span>
-<span class="n">display</span><span class="p">(</span><span class="n">image_go_data</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">'bwr'</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="s1">'hit_rate'</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># We can display the results with cells color-coded by their hit rate to make it easier to see what&#39;s going on here</span>
+<span class="n">display</span><span class="p">(</span><span class="n">image_go_data</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="s1">&#39;hit_rate&#39;</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -22915,24 +22915,24 @@ Now let's plot this data.
 <span class="n">gs</span> <span class="o">=</span> <span class="n">GridSpec</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="n">fig</span><span class="p">)</span>
 
 <span class="n">hit_rate_ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:])</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'r'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">]</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
 <span class="n">image_order</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">isnovel</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span> <span class="n">colors</span><span class="p">):</span>
-    <span class="n">rows</span> <span class="o">=</span> <span class="n">image_go_data</span><span class="p">[</span><span class="n">image_go_data</span><span class="p">[</span><span class="s1">'is_novel_change_image'</span><span class="p">]</span><span class="o">==</span><span class="n">isnovel</span><span class="p">]</span>
-    <span class="n">rows</span> <span class="o">=</span> <span class="n">rows</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'hit_rate'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">image_go_data</span><span class="p">[</span><span class="n">image_go_data</span><span class="p">[</span><span class="s1">&#39;is_novel_change_image&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">isnovel</span><span class="p">]</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">rows</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;hit_rate&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     
-    <span class="n">hit_rates</span> <span class="o">=</span> <span class="n">rows</span><span class="p">[</span><span class="s1">'hit_rate'</span><span class="p">]</span>
-    <span class="n">hit_rate_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hit_rates</span><span class="p">,</span> <span class="n">color</span><span class="o">+</span><span class="s1">'o-'</span><span class="p">)</span>
+    <span class="n">hit_rates</span> <span class="o">=</span> <span class="n">rows</span><span class="p">[</span><span class="s1">&#39;hit_rate&#39;</span><span class="p">]</span>
+    <span class="n">hit_rate_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hit_rates</span><span class="p">,</span> <span class="n">color</span><span class="o">+</span><span class="s1">&#39;o-&#39;</span><span class="p">)</span>
     
     <span class="n">image_order</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">rows</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
     
-<span class="n">hit_rate_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Hit Rate'</span><span class="p">)</span>
-<span class="n">hit_rate_ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">'Novel'</span><span class="p">,</span> <span class="s1">'Familiar'</span><span class="p">])</span>
+<span class="n">hit_rate_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Hit Rate&#39;</span><span class="p">)</span>
+<span class="n">hit_rate_ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Novel&#39;</span><span class="p">,</span> <span class="s1">&#39;Familiar&#39;</span><span class="p">])</span>
 
-<span class="c1"># Let's add the images themselves under each dot.    </span>
+<span class="c1"># Let&#39;s add the images themselves under each dot.    </span>
 <span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">im</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">image_order</span><span class="p">):</span>
     <span class="n">im_ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">ind</span><span class="p">])</span>
-    <span class="n">im_ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">stimulus_templates</span><span class="p">[</span><span class="s1">'warped'</span><span class="p">][</span><span class="n">im</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">)</span>
+    <span class="n">im_ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">session</span><span class="o">.</span><span class="n">stimulus_templates</span><span class="p">[</span><span class="s1">&#39;warped&#39;</span><span class="p">][</span><span class="n">im</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
     <span class="n">im_ax</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">im_ax</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
