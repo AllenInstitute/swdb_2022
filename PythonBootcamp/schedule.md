@@ -20,10 +20,10 @@ Any material we don't cover Saturday will be covered Sunday morning.
 | Michael        | 01_Basic_Python_I_Object_and_Data_Structures.ipynb  |
 | Koosha         | 02_Basic_Python_II_Control_Flow_and_Functions.ipynb |
 | Luke           | 03_Intro_To_Scientific_Computing.ipynb              |
-| Luke           | 04_Introduction_To_Numpy.ipynb                      |
-| Koosha         | 05_Introduction_To_Matplotlib.ipynb                 |
-| Jon            | 06_Custom_Modules.ipynb                             |
-| Jon            | 07_Conda_Environments.ipynb                         |
+| Jon            | 04_Conda_Environments.ipynb                         |
+| Luke           | 05_Introduction_To_Numpy.ipynb                      |
+| Koosha         | 06_Introduction_To_Matplotlib.ipynb                 |
+| Jon            | 07_Custom_Modules.ipynb                             |
 
 ---
 
