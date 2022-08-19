@@ -17,6 +17,7 @@ if on a mac open terminal and type
 ```
 cd /Volumes/Brain2022/swdb_2022
 ```
+if you are on the hub, you shouldn't need to do anything. If you are on linux this will depend on where you mounted the harddrive, or cloned the repo yourself. 
 
  and on any platform run
 
