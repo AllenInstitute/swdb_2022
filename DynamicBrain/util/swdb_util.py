@@ -1,5 +1,5 @@
-import os, sys, re, hashlib, traceback, datetime
-from urllib.request import Request, urlopen, HTTPError
+import os, sys, re, time, hashlib, traceback, datetime
+from urllib.request import Request, urlopen, HTTPError, urlretrieve
 import numpy as np
 
 
@@ -11,12 +11,17 @@ def run_update(name):
     assert re.match(r'^[a-zA-Z0-9_]+$', name) is not None
     url = "https://raw.githubusercontent.com/AllenInstitute/swdb_2022/main/DynamicBrain/util/{name}.py".format(name=name)
     target_path = os.path.join(os.getcwd(), name+'.py')
+    if os.path.exists(target_path):
+        os.remove(target_path)
     try:
-        interactive_download(url, target_path)
+        urlretrieve(url, target_path)
     except HTTPError as err:
         if err.status == 404:
             print("Unknown update %r; check your spelling." % name)
-    exec(target_path)
+            return
+        raise
+    with open(target_path, 'r') as fh:
+        exec(fh.read())
 
 
 def iter_md5_hash(file_path, chunksize=1000000):
