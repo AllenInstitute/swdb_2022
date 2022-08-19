@@ -12,6 +12,7 @@ dependencies:
   - nbgitpuller
   - pykdtree
   - scikit-build
+  - anaconda::scipy
   - pip
   - pip:
       - pyembree
