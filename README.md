@@ -6,25 +6,28 @@ This is the repository for the course materials for the 2022 Summer Workshop on 
 # Environment Setup
 To setup an environment using conda that has all the packages you need to run this repository, first install [anaconda](https://www.anaconda.com/products/distribution). If on an a mac, install the intel version rather than the M1 version as some dependancies are not yet updated to support M1 compilation. 
 
-Then open a terminal or Anaconda navigator on windows. Navigate to this repository directory using cd. 
+Then open a terminal (on Windows, open the command prompt from Anaconda navigator). Navigate to this repository directory using cd. 
 
-If you are using the repo on the harddrive on windows type 
+If you are using the repo on the harddrive on Windows (say Brain2022 shows up as E: on your computer), type 
 ```
-cd 
+E:
+cd swdb_2022
 ```
-if on a mac open terminal and type
 
+If on a Mac, open a terminal and type
 ```
 cd /Volumes/Brain2022/swdb_2022
 ```
-if you are on the hub, you shouldn't need to do anything. If you are on linux this will depend on where you mounted the harddrive, or cloned the repo yourself. 
 
- and on any platform run
+On Linux, open a terminal and type
+```
+cd /media/$USERNAME/Brain2022/swdb_2022
+```
 
+Then, on any platform run:
 ```
 conda env create --name swdb2022 --file=environment.yml
 ```
-
 
 # Support Policy
 
