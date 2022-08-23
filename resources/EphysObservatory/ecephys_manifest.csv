@@ -1,0 +1,7 @@
+nwb_filename,experiment_type,VISp,VISal,VISam,VISlm,VISpm,VISrl,locally_sparse_noise,gabor,drifting_gratings,static_gratings,natural_images,natural_movie_3,full_field_flashes
+nwb_M14_actual_ds2.nwb,single_probe,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE
+nwb_M15_actual_ds2.nwb,single_probe,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE
+nwb_M16_actual_ds2.nwb,single_probe,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE
+nwb_M39_actual_ds2.nwb,single_probe,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE
+nwb_M51_actual_ds2.nwb,single_probe,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE
+mouse372584_probe_surf_bob.nwb,multi_probe,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
