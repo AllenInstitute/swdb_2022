@@ -14579,7 +14579,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2><img src="../resources/cropped-SummerWorkshop_Header.png"></h2>
+<h2><img src="../../resources/cropped-SummerWorkshop_Header.png"></h2>
 <p><h1 align="center">Dimensionality Reduction SWDB 2022 </h1></p>
 <h3 align="center">Monday, August 29, 2022</h3>
 </div>
@@ -14667,22 +14667,22 @@ We can equivalently define PCA by specifying the principal components as the eig
 
 <p>
 To understand PCA intuitivly, consider this whale shark (Borrowed shamelessly from #AllisonHorst on twitter):
-</p><p><img src="../resources/PCAWhale1.png" width = 500></p>
+</p><p><img src="../../resources/PCAWhale1.png" width = 500></p>
 <p>
 Now, imagine that the shark needs to eat this school of krill:
-</p><p><img src="../resources/PCAWhale2.png" width = 500></p>
+</p><p><img src="../../resources/PCAWhale2.png" width = 500></p>
 <p>
 Principal components analysis provides a an algorithm that the shark can use to maximize how many krill will end up in its mouth. 
 </p><p> 
 To see how this works, lets start by imaging that the shark has a couple of footballs (this is, obviously, a super realistic example). To find the widest dimension of krill the shark will need to engulf, they can try to hold a football such that it entirly covers the krill population. The widest dimension will be the one in which the smallest football can cover all of the krill. Another way of saying this is that the football needs to be positioned to minimze the travel of any given krill trying to leave it.
-</p><p><img src="../resources/KrillPlot1.png"  width = 500></p>
-<p><img src="../resources/KrillPlot2.png"  width = 500></p>
+</p><p><img src="../../resources/KrillPlot1.png"  width = 500></p>
+<p><img src="../../resources/KrillPlot2.png"  width = 500></p>
 <p>
 Mathematically, the vector of the long axis of this football is known as the first eigenvector of the covariance matrix of the data, that is, the vector that describes the most variance in our data/krill. In principal components analysis, this is called the first principal component. The amount the shark needs to resize the football is proportional to a quanitity know as the first eigenvalue. 
 
 </p><p>  
 Now that the whale-shark has established this first vector, the next step is to establish a second. This is done by compressing all of the krill along the vector established by the first football, then fitting a second football to the remaining data.
-</p><p><img src="../resources/KrillPlot4.png"  width = 500></p>
+</p><p><img src="../../resources/KrillPlot4.png"  width = 500></p>
 <p>
 We call the vector of this second football the second eigenvector of the covariance matrix, that is, the second principal component. The amount that this football is resized scales with the second eigenvalue. 
 </p><p>
