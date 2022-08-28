@@ -14688,24 +14688,8 @@ We call the vector of this second football the second eigenvector of the covaria
 </p><p>
 Importantly, this algorithm enforces that that the direction of each football be orthogonal to one another. If we had additional dimensions, it would be enforced for the relationships between all of the principle components. If you hate this assumtion, there is a class of algorithms you can look into called 'independant components analysis,' which is similar to PCA but does require that your footballs be orthogonal to each other.
 </p><p>
-In the case of our whale shark, the principle components are directly interpretable. The first principle component tells the shark how to rotate its mouth to fit around the school of krill, and the projections of the krill onto the second principle component tell the shark how far it needs to open its mouth. Another way of saying this is that we have found a linear transform shark-space to krill space. 
-</p><p>This analogy illustrates the unsupervised nature of PCA, because these quanitites were learned entirely from krill without explicit knowlege of shark.
+In the case of our whale shark, the principle components are directly interpretable. The first principle component tells the shark how to rotate its mouth to fit around the school of krill, and the projections of the krill onto the second principle component tell the shark how far it needs to open its mouth. Another way of saying this is that we have found a linear transform from shark-space to krill space. 
 </p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
-<p>
-    As in the last regression, we use <code>scikit-learn</code> to perform a Principal Components Analysis, first on some toy data, and then on some data from the Behavior recordings. The interface will be the same for other algorithms in <code>scikit-learn</code>.
-</p>
-</div>
 </div>
 </div>
 </div>
@@ -15218,10 +15202,17 @@ jp-needs-light-background
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; "></p>
+<div style="border-left: 3px solid #000; padding: 1px; padding-left: 10px; background: #F0FAFF; ">
 <p>
 
-<h3 id="Now-let's-use-sklearn.">Now let's use sklearn.<a class="anchor-link" href="#Now-let's-use-sklearn.">&#182;</a></h3>
+### Now let's use sklearn.
+
+
+
+ <p>
+
+<code>scikit-learn</code> provides a more streamlined interface for performing a Principal Components Analysis. Here we will use it first on the same toy data as above, and then on some data from the Behavior recordings. The interface will be the same for other algorithms in <code>scikit-learn</code>, such as those you saw in the regression tutorial
+</div>
 </div>
 </div>
 </div>
