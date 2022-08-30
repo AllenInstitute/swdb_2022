@@ -1,0 +1,17 @@
+{
+    "database.host": "swdb.crjvviai1xxh.us-west-2.rds.amazonaws.com",
+    "database.password": "aeTd3XVP7ESdOsEsG7KlPG3475blO3B2G5VZQRahi",
+    "database.user": "dbuser",
+    "database.port": 3306,
+    "database.reconnect": true,
+    "connection.init_function": null,
+    "connection.charset": "",
+    "loglevel": "INFO",
+    "safemode": true,
+    "fetch_format": "array",
+    "display.limit": 12,
+    "display.width": 14,
+    "display.show_tuple_count": true,
+    "database.use_tls": null,
+    "enable_python_native_blobs": true
+}
